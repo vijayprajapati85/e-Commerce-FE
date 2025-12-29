@@ -1,0 +1,145 @@
+/* .navbar{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;--comment it 
+    padding: 15px 7%;
+}
+.logo
+{
+    width: 160px;
+    cursor: pointer;
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    background: #4caf50;
+    padding: 5px 20px;
+    border-radius: 50px;
+}
+.search-box input{
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    font-size: 18px;
+    max-width: 200px;
+}
+.search-box input::placeholder {
+    color: #fff;
+}
+.search-box img{
+    width: 20px;
+    cursor: pointer;
+}
+
+[class^="ri-"], [class*=" ri-"]{
+    color: #4caf50;
+}
+*/
+
+/* Header.css */
+
+.site-header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  border-bottom: 3px solid #10b981; /* A nice accent color */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Logo Styling */
+.site-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937; /* Dark text color */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.site-logo i {
+  margin-right: 8px;
+  color: #10b981; /* Accent color for the icon */
+}
+
+/* Search Bar Styling */
+.search-bar {
+  display: flex;
+  flex: 1; /* Allows the search bar to grow */
+  max-width: 500px;
+  margin: 0 40px;
+}
+
+.search-bar input {
+  padding: 10px 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px 0 0 8px;
+  width: 100%;
+  font-size: 1rem;
+}
+.search-bar input:hover, input:focus {
+    border: 2px solid #10b981;
+    outline: none;
+}
+
+.search-button {
+  background-color: #10b981; /* Accent color */
+  color: white;
+  border: none;
+  /* padding: 0 15px; */
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: auto;
+}
+
+.search-button:hover {
+  background-color: #059669; /* Darker green on hover */
+}
+
+.cart-lg {
+  font-size: 2rem; 
+  color: #4b5563; 
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.cart-icon a:hover .cart-lg {
+  color: #1f2937; /* Darker on hover */
+}
+
+/* Basic Responsiveness */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .search-bar {
+    order: 3; /* Push search bar below logo on mobile */
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.ri-shopping-bag-line{
+    cursor: pointer;
+    font-size: x-large;
+}
+
+/* .cart-quantity button
+{
+    border-radius: 12px;
+      padding: 12px;
+      margin: 10px;
+} */

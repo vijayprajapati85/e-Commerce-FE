@@ -1,0 +1,77 @@
+ul{
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+ul li{
+    display: inline-block;
+    margin: 0px 10px;
+    /* font-size: 18px; */
+    cursor: pointer;
+}
+/* Container with Glassmorphism */
+.glass-nav {
+  background: #4caf50;
+  backdrop-filter: blur(12px);
+  /* border: 1px solid rgba(255, 255, 255, 0.2); */
+  padding: 20px 340px;
+  /* border-radius: 12px; */
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 12px;
+  transition: color 0.3s;
+}
+
+/* Submenu Styles */
+.nav-item .nav-list {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  flex-direction: column;
+  background: #4caf50;
+  min-width: 210px;
+  /* border-radius: 8px; */
+  /* padding: 10px 0; */
+  gap: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Show submenu on hover */
+.nav-item:hover > .nav-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(20px);
+  border-bottom: #00d2ff 2px solid;
+}
+
+.nav-item .nav-list a {
+  display: block;
+  padding: 15px 25px;
+  font-size: 0.9rem;
+}
+
+.nav-item .nav-list a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00d2ff;
+}

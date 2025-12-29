@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  /* width: 100vw; */
+  min-height: 100vh;
+  background: #adffc329;
+}
+
+.content-area {
+  text-align: center;
+}
+
+.quill {
+  /* margin: auto;
+    padding: auto;*/
+    padding-top: 5px;
+  box-sizing: initial;
+  /* font-family: sans-serif; */
+  text-align: initial;
+  /* height: 200px; */
+}
+
+.ql-toolbar.ql-snow .ql-formats {
+  margin-right: initial !important;
+}
+
+.ql-toolbar.ql-snow {
+  padding: initial !important;
+}
+
+.ql-editor {
+  height: 200px !important; /* Set your desired fixed height */
+  overflow-y: auto !important; /* Adds a vertical scrollbar if content overflows */
+  padding-bottom: 12px !important; /* Optional: Adds some padding at the bottom for aesthetics */
+}
+
+/* Optional: Ensure the outer container adjusts correctly */
+.ql-container {
+  height: auto !important;
+}

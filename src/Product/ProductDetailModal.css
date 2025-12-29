@@ -1,0 +1,107 @@
+/* ProductDetailModal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+#product-detail .modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 1200px;
+  /* width: 90%; */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  /* Optional: Simple animation on open */
+  transform: scale(0.98);
+  animation: modal-open 0.3s forwards ease-out;
+  text-align: initial;
+}
+
+#product-detail .modal-description{
+  padding: 20px 20px;
+}
+
+@keyframes modal-open {
+    to { transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.product-title {
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 0px;
+  margin: 0px;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.modal-image {
+  width: 40%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.modal-details {
+    flex-grow: 1;
+}
+
+.modal-price {
+    font-size: 1.4rem;
+    margin: 15px 0;
+}
+
+.add-to-cart-btn {
+  background-color: #10b981; /* Primary green from image */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  /* font-weight: 600; */
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.add-to-cart-btn i {
+    margin-right: 8px;
+}
+
+.quantity-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

@@ -1,0 +1,61 @@
+.modal-overlay {
+    /* Position the overlay over the entire screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    /* Style for the popup box itself */
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 530px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    text-align: center;
+  }
+  
+  /* Style the form elements within the modal content */
+  .contact-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .contact-form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #22c85878;
+    border-radius: 4px;
+  }
+  
+  .contact-form button {
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: auto;
+  }
+  .info
+  {
+    color: red;
+    font-size: 12px;
+    text-align: left;
+    padding: 2px 0px;
+  }
+  .contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 2px solid #22c85878;
+    border-radius: 4px;
+  }
