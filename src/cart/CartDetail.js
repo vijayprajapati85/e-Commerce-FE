@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AddToCart from '../cart/AddToCart';
 import { CURRENCY_CODE } from '../constants/constant';
 import './cart.css';
@@ -57,7 +57,7 @@ const CartDetail = ({onClose}) =>{
                         </div>
                     ))
                 }
-                {(!cartList || cartList === undefined || cartList.length == 0) &&
+                {(!cartList || cartList === undefined || cartList.length === 0) &&
                     <h3>Your Cart is empty.</h3>
 
                 }

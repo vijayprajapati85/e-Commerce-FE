@@ -73,7 +73,7 @@ const Home = () => {
                         </div>
                     </div>
                 ))}
-                {!products || products.length === 0 && <h1>Product will come soon, Thanks.</h1>}
+                {(!products || products.length === 0) && (<h1>Product will come soon, Thanks.</h1>)}
                 
                 <ProductDetailModal
                     isOpen={isModalOpen}
