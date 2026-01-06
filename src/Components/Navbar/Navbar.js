@@ -1,4 +1,5 @@
 import './Navbar.css';
+import { useNavigate } from 'react-router-dom';
 import { UserMenu, AdminMenu } from './menu'
 import { Link } from 'react-router-dom';
 import { useCart } from '../../cart/CartContext';
@@ -7,6 +8,7 @@ import { useState } from 'react';
 
 const Navbar = ({isAdmin}) => {
  
+    const navigate = useNavigate();
     const { cartCount } = useCart();
     
     const cartitems = JSON.parse(localStorage.getItem('cartItems'));
@@ -27,6 +29,10 @@ const Navbar = ({isAdmin}) => {
 
     const handleCartClick = () => {
         setIsCartOpen(true);
+    };
+
+    const handleLoginClick = () => {
+        navigate('login');
     };
 
      const handleCloseCart = () => {
@@ -52,10 +58,12 @@ const Navbar = ({isAdmin}) => {
                             <i className="ri-search-line"></i>
                         </button>
                     </div>
-
-                    <div className="cart-icon" style={{ display: isAdmin ? 'none' : 'block' }} onClick={handleCartClick}>
-                            <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} cart-lg`}></i>
+                    <div style={{ display: isAdmin ? 'none' : 'flex' }}>
+                        <div className="cart-icon" onClick={handleCartClick}>
+                            <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} ri-lg`}></i>
                             <span className="cart-count">{cartCount}</span>
+                        </div>
+                        <div className="cart-icon" style={{padding: "0px 25px"}} onClick={handleLoginClick}><i class="ri-user-line ri-lg"></i></div>
                     </div>
                 </div>
             </header>

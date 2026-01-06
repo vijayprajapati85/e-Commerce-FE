@@ -9,7 +9,7 @@ export const submitCategory = async (payload) => {
         body : JSON.stringify(payload)
     }
 
-   const response  = await fetch(BASEURL_CATEGORY + 'InsertUpdate', request)
+   const response  = await fetch(`${BASEURL_CATEGORY}InsertUpdate`, request)
     .then(response => response.json());
     
     return response;
@@ -17,7 +17,7 @@ export const submitCategory = async (payload) => {
 
 export const getCategoryAll = async () =>{
     try {
-        const response = fetch(BASEURL_CATEGORY + 'GetAll')
+        const response = fetch(`${BASEURL_CATEGORY}GetAll`)
             .then(response => response.json());
 
         return response;

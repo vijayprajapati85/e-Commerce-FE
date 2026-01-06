@@ -8,7 +8,7 @@ export const submitSubCategory = async (payload) => {
         body : JSON.stringify(payload)
     }
 
-   const response  = await fetch(BASEURL_SUBCATEGORY + 'InsertUpdate', request)
+   const response  = await fetch(`${BASEURL_SUBCATEGORY}InsertUpdate`, request)
     .then(response => response.json());
     
     return response;
@@ -16,7 +16,7 @@ export const submitSubCategory = async (payload) => {
 
 export const getSubCategory = async (catid) =>{
 
-    const response = fetch(BASEURL_SUBCATEGORY + 'GetByCatId?id=' + catid)
+    const response = fetch(`${BASEURL_SUBCATEGORY}GetByCatId?id=${catid}`)
     .then(response => response.json());
 
     return response;

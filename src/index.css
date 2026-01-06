@@ -43,3 +43,9 @@
 .ql-container {
   height: auto !important;
 }
+
+.alert
+{
+  font-size: smaller;
+  color: red !important;
+}

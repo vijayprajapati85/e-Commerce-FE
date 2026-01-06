@@ -55,7 +55,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 /* Logo Styling */
@@ -108,15 +108,16 @@
   background-color: #059669; /* Darker green on hover */
 }
 
-.cart-lg {
+/* .cart-lg {
   font-size: 2rem; 
   color: #4b5563; 
   transition: color 0.2s;
   cursor: pointer;
-}
+} */
 
-.cart-icon a:hover .cart-lg {
+.cart-icon, a:hover, .ri-lg {
   color: #1f2937; /* Darker on hover */
+  cursor: pointer;
 }
 
 /* Basic Responsiveness */
