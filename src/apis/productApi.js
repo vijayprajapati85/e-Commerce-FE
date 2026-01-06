@@ -18,7 +18,7 @@ export const submitProduct = async (payload) => {
         body : data
     }
 
-   const response  = await fetch(BASEURL_PRODUCT + 'InsertUpdate', request)
+   const response  = await fetch(`${BASEURL_PRODUCT}InsertUpdate`, request)
     .then(response => response.json());
     
     return response;
@@ -28,7 +28,7 @@ export const getAllProducts = async () => {
      const request = {
         method :'GET',
     }
-    const response = await fetch(BASEURL_PRODUCT + 'GetAll', request)
+    const response = await fetch(`${BASEURL_PRODUCT}GetAll`, request)
     .then(response => response.json());
     
     return response;
@@ -40,7 +40,7 @@ export const getProductByCatSubCat = async (payload) => {
        body : JSON.stringify(payload),
        headers : {'Content-Type' : 'application/json' }
     }
-    const response = await fetch(BASEURL_PRODUCT + 'GetProducts', request)
+    const response = await fetch(`${BASEURL_PRODUCT}GetProducts`, request)
     .then(response => response.json());
 
     return response;

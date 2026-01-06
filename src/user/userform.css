@@ -1,0 +1,23 @@
+.main-content {
+    display: flex;
+    justify-content: space-around; /* Distributes items */
+    padding: 3rem 10%; /* Matches image layout positioning */
+    min-height: calc(100vh - 60px - 6rem); /* Adjusts for header and padding */
+    align-items: flex-start; /* Aligns content to the top */
+}
+
+.landing-text-area {
+    width: 45%;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.landing-text-area h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.landing-text-area p {
+    font-size: 1rem;
+    color: #666;
+}
