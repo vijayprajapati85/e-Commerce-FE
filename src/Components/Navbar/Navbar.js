@@ -3,14 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { UserMenu, AdminMenu } from './menu'
 import { Link } from 'react-router-dom';
 import { useCart } from '../../cart/CartContext';
-import  CartDetail  from '../../cart/CartDetail';
+import { GetUser } from '../../user/UserContext';
+import CartDetail from '../../cart/CartDetail';
 import { useState } from 'react';
 
-const Navbar = ({isAdmin}) => {
- 
+const Navbar = ({ isAdmin }) => {
+
     const navigate = useNavigate();
     const { cartCount } = useCart();
-    
+    const { isLogin, getProfile } = GetUser();
+
     const cartitems = JSON.parse(localStorage.getItem('cartItems'));
     if (cartitems && cartitems.length > 0) {
         const latestExpiryTimestamp = Math.max(...cartitems.map(item => item.expiry));
@@ -24,20 +26,40 @@ const Navbar = ({isAdmin}) => {
     }
 
     const [products, setProducts] = useState(cartitems);
-    
-    const [isCartOpen, setIsCartOpen] = useState(false);
 
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
+    const profile =  getProfile();
     const handleCartClick = () => {
-        setIsCartOpen(true);
+        if (!isLogin()) {
+            navigate('login');
+        }
+        else{
+            setIsCartOpen(true);
+        }
     };
 
     const handleLoginClick = () => {
-        navigate('login');
+        if (!isLogin()) {
+            navigate('login');
+        }
+        else
+        {
+            setIsMenuOpen(!isMenuOpen);
+        }
     };
 
-     const handleCloseCart = () => {
-    setIsCartOpen(false);
-  };
+    const handleCloseCart = () => {
+        setIsCartOpen(false);
+    };
+
+    const handleLogout = () => {
+        localStorage.removeItem('token'); // Remove the token from storage
+        localStorage.removeItem('profile');
+        setIsMenuOpen(false); // Close the menu
+        navigate('/login'); // Redirect to the login page
+    };
 
     return (
         <>
@@ -59,21 +81,32 @@ const Navbar = ({isAdmin}) => {
                         </button>
                     </div>
                     <div style={{ display: isAdmin ? 'none' : 'flex' }}>
-                        <div className="cart-icon" onClick={handleCartClick}>
+                        <div onClick={handleCartClick}>
                             <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} ri-lg`}></i>
                             <span className="cart-count">{cartCount}</span>
                         </div>
-                        <div className="cart-icon" style={{padding: "0px 25px"}} onClick={handleLoginClick}><i class="ri-user-line ri-lg"></i></div>
+                        <div style={{ padding: "0px 25px" }} onClick={handleLoginClick}>
+                            <div className="user-profile-area">
+                                <i className={`${isLogin() ? "ri-user-fill" : "ri-user-line"} ri-lg`}></i>
+                                {isMenuOpen && profile && (
+                                    <div className="user-dropdown-menu">
+                                        <p>Welcome, {`${profile.fullName}`}!</p>
+                                        <p>Email: {`${profile.emailId}`}</p>
+                                        <a onClick={handleLogout}>Logout</a>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>
-         {isAdmin ? <AdminMenu /> : <UserMenu />}
-         {isCartOpen && (
-        <CartDetail 
-          onClose={handleCloseCart} 
-          products={products}
-        />
-      )}
+            {isAdmin ? <AdminMenu /> : <UserMenu />}
+            {isCartOpen && (
+                <CartDetail
+                    onClose={handleCloseCart}
+                    products={products}
+                />
+            )}
         </>
     )
 }

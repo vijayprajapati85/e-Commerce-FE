@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { createUser } from '../apis/userApi';
@@ -8,10 +8,6 @@ const Signup = () => {
     const [fullName, setFullName] = useState('');
     const [emailId, setEmailId] = useState('');
     const navigate = useNavigate();
-    
-    const onSignInClick = () =>{
-        navigate('/login');
-    }
     
     const handleNameChange = (e) =>{
         setFullName(e.target.value);
@@ -35,9 +31,10 @@ const Signup = () => {
                     width: '350px',
                 },
             });
+            navigate('/');
         }
         else {
-            toast.error(response.message);
+            toast.error(response.title);
         }
     }
 
@@ -55,10 +52,10 @@ const Signup = () => {
                         <input type="email" id="signup-email" onChange={handleEmailChange} required />
                     </div>
                     <p className='alert'>Note: Password will send on your email id</p>
-                    <button type="submit" class="auth-button">Send Email</button>
+                    <button type="submit" class="login-button">Send Email</button>
                      <div class="form-footer">
-                        <a href="#">Forgot password?</a>
-                        <span>Have an account? <a onClick={onSignInClick}>Sign in</a></span>
+                        <Link to='/reset'>Forgot password?</Link>&nbsp;&nbsp;
+                        <span>Have an account? <Link to='/login'>Sign in</Link></span>
                     </div>
                 </form>
             </div>
