@@ -13,3 +13,31 @@ export const createUser = async (payload) => {
 
     return response;
 };
+
+export const signIn = async (payload) =>
+{
+    const request = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }
+
+    const response = await fetch(`${BASEURL_USER}SignIn`, request)
+        .then(response => response.json());
+
+    return response;
+}
+
+export const resetPwd = async (payload) =>{
+ 
+        const request = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }
+
+    const response = await fetch(`${BASEURL_USER}ForgotPassword`, request)
+        .then(response => response.json());
+
+    return response;
+}

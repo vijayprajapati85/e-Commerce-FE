@@ -3,6 +3,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { getProductByCatSubCat } from "../apis/productApi";
 import ProductDetailModal from "../Product/ProductDetailModal";
 import AddToCart from '../cart/AddToCart';
+import { GetUser } from './UserContext';
 
 import './home.css';
 
@@ -10,6 +11,7 @@ import { CURRENCY_CODE } from '../constants/constant';
 
 const Home = () => {
 
+    const { isLogin } = GetUser();
     const [products, setProducts] = useState([]);
 
     const getProduct = async (postData) => {
@@ -41,6 +43,10 @@ const Home = () => {
         if (data) {
             getProduct(data);
         }
+        else
+        {
+            setProducts([]);
+        }
     }, [data]);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,7 +73,7 @@ const Home = () => {
                         <img src={product.imageName} alt={product.name} className="product-image" />
 
                         <div className="product-footer">
-                            <span className="product-price">{CURRENCY_CODE}{product.price}</span>
+                            <span className="product-price">{CURRENCY_CODE}{ isLogin() ? product.price : '' }</span>
                             <AddToCart product={product} isButton={false} isFinalCart={false} />
                             <button className="manage-button" onClick={() => handleGetDetail(product)}>Detail</button>
                         </div>

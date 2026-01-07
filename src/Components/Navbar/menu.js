@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { getCategoryAll } from '../../apis/categoryApi';
 import { RemoveSpecialChars } from "../../Helper/helper";
 import './menu.css';
@@ -47,12 +47,11 @@ export const UserMenu = () => {
 }
 
 export const AdminMenu = () => {
-  const navigate = useNavigate();
   return (
     <nav className="glass-nav">
       <ul className="nav-list">
-        <li className="nav-item"><a onClick={() => navigate('/admin/dashboard')}>Dashboard</a></li>
-        <li className="nav-item"><a onClick={() => navigate('/admin/products')}>Products</a></li>
+        <li className="nav-item"><Link to='/admin/dashboard'>Dashboard</Link></li>
+        <li className="nav-item"><Link to='/admin/products'>Products</Link></li>
       </ul></nav>
   );
 }
