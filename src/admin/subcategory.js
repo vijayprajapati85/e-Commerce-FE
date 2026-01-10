@@ -100,7 +100,7 @@ const SubCategory = ({ onClose, formData, onUpdate }) => {
                 isDisabled={isEditForm || catId != null} // Disable if editing
             />
             <input type='text' value={subCategory} onChange={handleChange} required />
-            {!isEditForm && <label className="info">Note: Multiple Subcategory add with comma (,) seperator.</label>}
+            {!isEditForm && <label className="alert">Note: Multiple Subcategory add with comma (,) seperator.</label>}
             <button type="submit">{isEditForm ? "Update" : "Submit"}</button>
             <button type="button" onClick={onClose}>Close</button>
         </form>

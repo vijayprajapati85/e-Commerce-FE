@@ -6,16 +6,13 @@ ul{
 ul li{
     display: inline-block;
     margin: 0px 10px;
-    /* font-size: 18px; */
     cursor: pointer;
 }
-/* Container with Glassmorphism */
+
 .glass-nav {
-  background: #4caf50;
+  border-bottom: 3px solid #10b981;
   backdrop-filter: blur(12px);
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
   padding: 20px 120px;
-  /* border-radius: 12px; */
 }
 
 .nav-list {
@@ -32,7 +29,6 @@ ul li{
 }
 
 .nav-item a {
-  color: #fff;
   text-decoration: none;
   font-weight: 500;
   padding: 8px 12px;
@@ -45,10 +41,7 @@ ul li{
   top: 100%;
   left: -20px;
   flex-direction: column;
-  background: #4caf50;
   min-width: 210px;
-  /* border-radius: 8px; */
-  /* padding: 10px 0; */
   gap: 0;
   opacity: 0;
   visibility: hidden;
@@ -61,8 +54,8 @@ ul li{
 .nav-item:hover > .nav-list {
   opacity: 1;
   visibility: visible;
-  transform: translateY(20px);
   border-bottom: #00d2ff 2px solid;
+  margin-top: 13px;
 }
 
 .nav-item .nav-list a {

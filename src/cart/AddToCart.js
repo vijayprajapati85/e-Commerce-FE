@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useCart } from '../cart/CartContext';
+import { GetUser } from '../user/UserContext';
 
 const AddToCart = ({ product, isButton, isFinalCart }) => {
+
+    const { isLogin } = GetUser();
 
     useEffect(() => {
         const initialQuantity = getQuentityFromLocalStorage();
@@ -19,17 +22,12 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
         }
     }
 
-    const onIncrementClick = () =>
-    {
-            setLocalQuantity(prev => Math.max(0, prev - 1));
-
-       
+    const onDecrementClick = () => {
+        setLocalQuantity(prev => Math.max(0, prev - 1));
     };
 
-    const onDecrementClick = () =>
-    {
+    const onIncrementClick = () => {
         setLocalQuantity(prev => prev + 1);
-
     }
 
     const AddToCartList = () => {
@@ -59,18 +57,10 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
     };
 
     const handleClick = () => {
-        // const ttl = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
-        // const now = new Date();
 
-        // const productToAdd = {
-        //     id: product.id,
-        //     name: product.name,
-        //     price: product.price,
-        //     quantity: localQuantity,
-        //     img:product.imageName,
-        //     expiry: now.getTime() + ttl,
-        // }
-        // incrementCart(productToAdd);
+        if (!isLogin()) {
+            return;
+        }
 
         AddToCartList();
 
@@ -81,7 +71,6 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
         });
     };
 
-    
     useEffect(()=>{
         if (isFinalCart) {
             AddToCartList();
@@ -92,14 +81,17 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
     return (
         <>
             <div className='cart-quantity'>
-                <button className="quantity-btn" disabled={localQuantity <= 1} onClick={onIncrementClick}>-</button>
+             
+             {isLogin() && <>
+                <i className="quantity-btn ri-checkbox-indeterminate-fill ri-2x" onClick={localQuantity > 1 ? onDecrementClick : null}></i> 
                 <span className="quantity-value">{localQuantity}</span>
-                <button className="quantity-btn" onClick={onDecrementClick}>+</button>
-          
-            {isButton &&
-                <button className="add-to-cart-btn" onClick={() => {
-                    handleClick();
-                }}>
+                <i className="quantity-btn ri-add-box-fill ri-2x" onClick={onIncrementClick}></i>
+          </>
+          }
+                {isButton &&
+                    <button className="add-to-cart-btn" disabled={!isLogin()} onClick={() => {
+                        handleClick();
+                    }}>
                     <i className="ri-shopping-cart-line"></i> Add to Cart
                 </button>
             }

@@ -4,49 +4,8 @@ import { getCategoryAll, deleteCategory } from '../apis/categoryApi';
 import { ExpandedComponent } from "./expandedComponent";
 import Modal from "./Modal";
 import { DeleteConfirmation } from './deleteConfirmation';
+import { customTableStyles } from '../constants/constant';
 
-
-export const customTableStyles = {
-	table: {
-		style: {
-			marginTop: "5px",
-            backgroundColor: '#f5f5f5',
-		}
-	},
-	headCells: {
-	  style: {
-		fontSize: '16px',
-		fontWeight: 'bold',
-		backgroundColor: '#f5f5f5', // Light gray header background
-		color: '#333',
-		padding: '0px 9px',
-	  },
-	},
-	cells: {
-	  style: {
-		fontSize: '14px',
-		paddingLeft: '0px',
-		paddingRight: '10px',
-	  },
-	},
-	rows: {
-	  style: {
-		'&:nth-of-type(odd)': {
-		  backgroundColor: '#fafafa', // Light alternate row color
-          height:'20px',
-		},
-		'&:nth-of-type(even)': {
-		  backgroundColor: '#fafafa', // Light alternate row color
-          height:'20px',
-		},
-		'&:hover': {
-		  backgroundColor: '#e0e0e0', // Hover effect
-		  cursor: 'pointer',
-		},
-	  },
-	},
-	// You can customize many other parts like the footer, pagination, etc.
-  };
 const CategoryList = ({onDataSend, updateData}) => {
 
     const columns = [
@@ -61,7 +20,7 @@ const CategoryList = ({onDataSend, updateData}) => {
                 <><button className="listbutton" onClick={() => handleEditClick(row)}>Edit</button>
                 <button className="listbutton" onClick={() => handleDeleteClick(row)}>Delete</button></>
             ),
-            width: '10%',
+            width: '11%',
         },
     ];
 

@@ -37,7 +37,7 @@ const Category = ({onClose, formData, onUpdate}) =>{
         <form onSubmit={handleSubmit} className="contact-form">
             <h3>{isEditForm ? "Edit" : "Add"} Category</h3>
             <input type='text' value={inputCat} onChange={handleChange} required />
-            {!isEditForm && <label className="info">Note: Multiple category add with comma (,) seperator.</label>}            
+            {!isEditForm && <label className="alert">Note: Multiple category add with comma (,) seperator.</label>}            
             <button type="submit">{isEditForm ? "Edit" : "Submit"}</button>
             <button type="button" onClick={onClose}>Close</button>
         </form>

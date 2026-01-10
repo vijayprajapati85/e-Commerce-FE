@@ -4,7 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import {getAllProducts} from '../apis/productApi';
-import { CURRENCY_CODE } from '../constants/constant';
+import { CURRENCY_CODE, customTableStyles } from '../constants/constant';
 
 	const formatAmount = (value) => {
 		if (value != null) {
@@ -13,45 +13,7 @@ import { CURRENCY_CODE } from '../constants/constant';
 		return `${CURRENCY_CODE}-`;
 	};
 
-	export const customTableStyles = {
-		table: {
-			style: {
-				marginTop: "5px",
-			}
-		},
-		headCells: {
-			style: {
-				fontSize: '16px',
-				fontWeight: 'bold',
-				backgroundColor: '#f5f5f5', // Light gray header background
-				color: '#333',
-				padding: '0px 9px',
-			},
-		},
-		cells: {
-			style: {
-				fontSize: '14px',
-				paddingLeft: '10px',
-				paddingRight: '10px',
-				height: 'auto',
-			},
-		},
-		rows: {
-			style: {
-				'&:nth-of-type(odd)': {
-					backgroundColor: '#fafafa', // Light alternate row color
-				},
-				'&:nth-of-type(even)': {
-					backgroundColor: '#fafafa', // Light alternate row color
-				},
-				'&:hover': {
-					backgroundColor: '#e0e0e0', // Hover effect
-					cursor: 'pointer',
-				},
-			},
-		},
-		// You can customize many other parts like the footer, pagination, etc.
-	};
+
   
   const ProductList = ({ onDataSend, updateData }) => {
 

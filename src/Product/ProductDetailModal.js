@@ -1,8 +1,11 @@
 import './ProductDetailModal.css';
 import { CURRENCY_CODE } from '../constants/constant';
 import AddToCart from '../cart/AddToCart';
+import { GetUser } from '../user/UserContext';
 
 const ProductDetailModal = ({ isOpen, product, onClose }) => {
+
+  const { isLogin } = GetUser();
 
   if (!isOpen || !product) {
     return null;
@@ -15,7 +18,7 @@ const ProductDetailModal = ({ isOpen, product, onClose }) => {
         <div className="modal-header">
           <h2 className="product-title">{product.name}</h2>
           <button className="close-button" onClick={onClose}>
-            &times; {/* HTML entity for a multiplication sign (X) */}
+            &times;
           </button>
         </div>
 
@@ -24,9 +27,9 @@ const ProductDetailModal = ({ isOpen, product, onClose }) => {
           <div className="modal-details">
             <p className="modal-category">Category: {product.catName}</p>
             <p className="modal-description" dangerouslySetInnerHTML={{ __html: product.description }}></p>
-            <p className="modal-price">Price: <strong>{CURRENCY_CODE}{product.price}</strong></p>
-            
-           {/* //prodcut cart  */}
+            {isLogin() &&
+              <p className="modal-price">Price: <strong>{CURRENCY_CODE}{product.price}</strong></p>
+            }
             <AddToCart product={product} isButton={true} />
           </div>
         </div>

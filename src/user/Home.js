@@ -8,6 +8,7 @@ import { GetUser } from './UserContext';
 import './home.css';
 
 import { CURRENCY_CODE } from '../constants/constant';
+import { toast } from "react-toastify";
 
 const Home = () => {
 
@@ -15,8 +16,17 @@ const Home = () => {
     const [products, setProducts] = useState([]);
 
     const getProduct = async (postData) => {
-        const response = await getProductByCatSubCat(postData);
-        if (response.data != null) {
+
+        let token = '';
+        if (isLogin()) {
+            token = localStorage.getItem('token');
+        }
+
+        const response = await getProductByCatSubCat(postData, token);
+        if (response.status === 401){
+            toast.error("Unauthorized: User not authenticated.");
+        }
+        else if (response.data != null) {
             setProducts(response.data);
         } else {
             setProducts([]);
@@ -69,14 +79,12 @@ const Home = () => {
                         <div className="product-header">
                             <p className="product-category">{product.name}</p>
                         </div>
-
                         <img src={product.imageName} alt={product.name} className="product-image" />
-
-                        <div className="product-footer">
-                            <span className="product-price">{CURRENCY_CODE}{ isLogin() ? product.price : '' }</span>
+                        {isLogin() && <div className="product-footer">
+                            <span className="product-price">{CURRENCY_CODE}{product.price}</span>
                             <AddToCart product={product} isButton={false} isFinalCart={false} />
-                            <button className="manage-button" onClick={() => handleGetDetail(product)}>Detail</button>
-                        </div>
+                        </div>}
+                      <button className="manage-button" onClick={() => handleGetDetail(product)}>Detail</button>
                     </div>
                 ))}
                 {(!products || products.length === 0) && (<h1>Product will come soon, Thanks.</h1>)}
