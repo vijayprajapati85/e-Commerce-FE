@@ -3,12 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  color: white;
+  background-color: #4656E8;
 }
 
 .container {
-  /* width: 100vw; */
   min-height: 100vh;
-  background: #adffc329;
 }
 
 .content-area {
@@ -47,5 +47,24 @@
 .alert
 {
   font-size: smaller;
-  color: red !important;
+  color: yellow !important;
+}
+
+/* Make the background of the success icon container transparent */
+.Toastify__toast--success .Toastify__toast-icon {
+  background-color: transparent !important;
+}
+
+/* Make the background of the error icon container transparent */
+.Toastify__toast--error .Toastify__toast-icon {
+  background-color: transparent !important;
+}
+
+/* Optional: Ensure the main toast body background is consistent if needed */
+.Toastify__toast--success {
+    background-color: white !important;
+}
+
+.Toastify__toast--error {
+    background-color: white !important;
 }

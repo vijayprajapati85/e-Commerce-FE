@@ -12,7 +12,7 @@ import UserForm from './user/UserForm';
 const App = () => {
   const location = useLocation();
   const isAdmin = location.pathname.toLowerCase().includes('admin');
-
+  
   return (
       <div className='container'>
         <ToastContainer position="top-right" autoClose={5000} />

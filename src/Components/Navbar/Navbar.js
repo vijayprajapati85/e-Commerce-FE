@@ -55,10 +55,10 @@ const Navbar = ({ isAdmin }) => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('token'); // Remove the token from storage
+        localStorage.removeItem('token');
         localStorage.removeItem('profile');
-        setIsMenuOpen(false); // Close the menu
-        navigate('/login'); // Redirect to the login page
+        setIsMenuOpen(false);
+        navigate('/login');
     };
 
     return (

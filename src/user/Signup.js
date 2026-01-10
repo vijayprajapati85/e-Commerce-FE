@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { createUser } from '../apis/userApi';
-import './signup.css';
 
 const Signup = () => {
     const [fullName, setFullName] = useState('');
@@ -40,8 +39,8 @@ const Signup = () => {
 
     return (
         <>
-            <div class="signup-container">
-                <form onSubmit={handleSubmit} class="signup-form">
+            <div class="login-container">
+                <form onSubmit={handleSubmit}>
                     <h2>Create Your Account</h2>
                     <div class="input-group">
                         <label for="signup-fullname">Full Name</label>
