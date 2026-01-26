@@ -21,6 +21,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  color: #ffff;
 }
 
 .site-logo i {
@@ -111,6 +112,7 @@
     z-index: 1;
     border-radius: 4px;
     margin-top: 5px;
+    background-color: #1F06D4;
 }
 
 .user-dropdown-menu p {

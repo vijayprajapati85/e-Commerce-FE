@@ -1,0 +1,16 @@
+.site-footer{
+    text-align: center;
+    border-top: 3px solid #10b981;
+}
+
+.footer-section{
+    padding: 20px 0;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}

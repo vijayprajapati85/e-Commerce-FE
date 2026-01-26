@@ -2,10 +2,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { signIn } from '../apis/userApi';
+import { useCart } from '../cart/CartContext';
 
 import './login.css';
 
 const Login = () =>{
+    const { incrementCart } = useCart();
+
     const[emailId, setEmailId] = useState('');
     const[pwd, setPwd] = useState('');
 
@@ -38,8 +41,28 @@ const Login = () =>{
                 fullName: response.data.fullName
             }
 
-            localStorage.setItem("profile", JSON.stringify(profile));
+            if(response.data.orderData) {
+                const ttl = 3 * 60 * 60 * 1000; // 3 hours in milliseconds
+                const now = new Date();
 
+                localStorage.removeItem('cartItems');
+                
+                response.data.orderData.forEach(element => {
+
+                    const productToAdd = {
+                        id: element.productId,
+                        name: element.name,
+                        price: element.price,
+                        quantity: element.quantity,
+                        img: element.imageName,
+                        expiry: now.getTime() + ttl,
+                    }
+                    incrementCart(productToAdd);
+                });
+            }
+
+            localStorage.setItem("profile", JSON.stringify(profile));
+            
             toast.success(response.title, {
                 style: {
                     width: '350px',

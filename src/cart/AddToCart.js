@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useCart } from '../cart/CartContext';
 import { GetUser } from '../user/UserContext';
+import { AddCarts } from '../apis/cartApi';
 
 const AddToCart = ({ product, isButton, isFinalCart }) => {
 
@@ -43,6 +44,20 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
             expiry: now.getTime() + ttl,
         }
         incrementCart(productToAdd);
+
+        if(!isFinalCart)
+        {
+            AddCartData();
+        }
+    }
+
+    const AddCartData = () => {
+        const payload = {
+            productId: product.id,
+            quantity: localQuantity
+        };
+
+        AddCarts(payload);
     }
 
     const [localQuantity, setLocalQuantity] = React.useState(getQuentityFromLocalStorage() || 1);
@@ -61,9 +76,7 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
         if (!isLogin()) {
             return;
         }
-
         AddToCartList();
-
         toast.success("Product added to cart successfully!", {
             style: {
                 width: '400px', // Inline style for a specific width
@@ -71,11 +84,12 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
         });
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         if (isFinalCart) {
             AddToCartList();
+            AddCartData();
         }
-    },[localQuantity]);
+    }, [localQuantity]);
 
 
     return (

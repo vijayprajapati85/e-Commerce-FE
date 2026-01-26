@@ -38,8 +38,13 @@ export const CartProvider = ({ children }) => {
       setCartCount(updatedCartItems.length === 0 ? '' : updatedCartItems.length);
     }
 
+    const clearCart = () => {
+      localStorage.removeItem('cartItems');
+      setCartList([]);
+      setCartCount('');
+    }
       return (
-    <CartContext.Provider value={{ cartCount, incrementCart, cartList, removeLocalItem }}>
+    <CartContext.Provider value={{ cartCount, incrementCart, cartList, removeLocalItem, clearCart }}>
       {children}
     </CartContext.Provider>
   );

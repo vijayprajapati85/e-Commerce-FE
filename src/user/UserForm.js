@@ -4,6 +4,7 @@ import './userform.css'
 import Login from "./Login"
 import Signup from "./Signup"
 import Reset from "./reset";
+import Contact from "./Contact";
 
 const UserForm = () => {
 
@@ -11,6 +12,7 @@ const UserForm = () => {
      const isLogin = location.pathname.toLowerCase().includes('login');
      const isSignup = location.pathname.toLowerCase().includes('signup');
      const isReset = location.pathname.toLowerCase().includes('reset');
+     const isContact = location.pathname.toLowerCase().includes('contact');
 
     return(
         <>
@@ -22,6 +24,7 @@ const UserForm = () => {
                 {isLogin && <Login />}
                 {isSignup && <Signup />}
                 {isReset && <Reset />}
+                {isContact && <Contact />}
             </div>
         </>
     )

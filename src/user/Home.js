@@ -84,6 +84,11 @@ const Home = () => {
                             <span className="product-price">{CURRENCY_CODE}{product.price}</span>
                             <AddToCart product={product} isButton={false} isFinalCart={false} />
                         </div>}
+                        {
+                            !isLogin() && <div className="product-footer">
+                             Login to see price
+                        </div>
+                        }
                       <button className="manage-button" onClick={() => handleGetDetail(product)}>Detail</button>
                     </div>
                 ))}
