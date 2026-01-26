@@ -7,7 +7,7 @@ export const CustomNoDataComponent = ({ handleItemClick }) => {
 
           <div className="subcat-list">
               <h3>No Data Found</h3>
-              <i class="ri-add-box-fill" title="Add SubCategory" onClick={handleItemClick}></i>
+              <i className="ri-add-box-fill" title="Add SubCategory" onClick={handleItemClick}></i>
           </div>
 
       <p>There are no subcategories to display at this time.</p>

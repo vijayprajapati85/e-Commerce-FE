@@ -8,7 +8,8 @@ import Home from './user/Home';
 import ProductActions from './admin/product';
 import Dashboard from './admin/dashboard';
 import UserForm from './user/UserForm';
-  
+import Footer from './Components/Navbar/Footer';
+
 const App = () => {
   const location = useLocation();
   const isAdmin = location.pathname.toLowerCase().includes('admin');
@@ -28,8 +29,12 @@ const App = () => {
             <Route path="/admin/products" element={<ProductActions />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
             <Route path="/admin" element={<Dashboard />} />
+            <Route path="/contact" element={<UserForm />} />
           </Routes>
         </div>
+      <footer className="site-footer">
+        <Footer />
+      </footer>
       </div>
   )
 }

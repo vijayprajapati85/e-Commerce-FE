@@ -57,6 +57,7 @@ const Navbar = ({ isAdmin }) => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('profile');
+        localStorage.removeItem('cartItems');
         setIsMenuOpen(false);
         navigate('/login');
     };

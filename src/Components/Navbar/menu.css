@@ -56,6 +56,7 @@ ul li{
   visibility: visible;
   border-bottom: #00d2ff 2px solid;
   margin-top: 13px;
+  background-color: #1F06D4;
 }
 
 .nav-item .nav-list a {

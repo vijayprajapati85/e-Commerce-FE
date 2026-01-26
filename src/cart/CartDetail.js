@@ -1,22 +1,25 @@
 import { useState } from "react";
 import AddToCart from '../cart/AddToCart';
+import { toast } from 'react-toastify';
 import { CURRENCY_CODE } from '../constants/constant';
 import './cart.css';
+import './loading.css';
 import '../assets/company-logo.png';
 import { useCart } from '../cart/CartContext';
 import Modal from "../admin/Modal";
 import { DeleteConfirmation } from '../admin/deleteConfirmation';
+import { DeleteCart, OrderPlace } from '../apis/cartApi';
 
 const CartDetail = ({onClose}) =>{
 
-    const { cartList, removeLocalItem } = useCart();
+    const { cartList, removeLocalItem, clearCart } = useCart();
 
     const totalAmount = cartList.reduce((sum, item) => {
         // Add the current item's price to the running total (sum)
         return sum + (item.price * item.quantity);
     }, 0); // Start the initial sum at 0
 
-
+    const [isLoading, setIsLoading] = useState(false);
     const [isDeleteModalOpen , setIsDeleteModalOpen] = useState(false);
     const [deleteItemName, setDeleteItemName] = useState('');
     const closeDeleteModal = () =>{
@@ -34,7 +37,30 @@ const CartDetail = ({onClose}) =>{
 
     const confirmDeleteModal = async () => {
         removeLocalItem(deleteItemName);
+        DeleteCart(deleteItemName.id);
         setIsDeleteModalOpen(false);
+      }
+
+      const orderPlace = async () => {
+        setIsLoading(true);
+          try {
+              const response = await OrderPlace();
+              if (response && response.success) {
+                  clearCart();
+                  toast.success("Order placed successfully!");
+              } else {
+                  toast.error("Failed to place order. Please try again.");
+              }
+
+              await new Promise(resolve => setTimeout(resolve, 2000));
+
+          }
+          catch (error) {
+              toast.error("An error occurred while placing the order.");
+          }
+          finally {
+              setIsLoading(false);
+          }
       }
 
     return(<>
@@ -65,7 +91,14 @@ const CartDetail = ({onClose}) =>{
                 <div className='total-title'>Total</div>
                 <div className='total-price'>{CURRENCY_CODE}{totalAmount.toFixed(2)}</div>
             </div>
-            <button className='btn-buy'>Buy Now</button>
+            <button className='btn-buy' disabled={isLoading || (!cartList || cartList === undefined || cartList.length === 0)} onClick={orderPlace}>
+                 {isLoading ? (
+        <div className="spinner"></div> // Conditionally render the spinner
+      ) : (
+        'Send Email' // Or an email icon component
+      )}
+
+            </button>
             <i class="ri-close-line" id='finalcart-close' onClick={onClose}></i>
         </div>
 

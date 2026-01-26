@@ -82,7 +82,7 @@ const CategoryList = ({onDataSend, updateData}) => {
         <div className="search">
           <div className="product-list">
             <h3>Category List</h3>
-            <i class="ri-add-box-fill" title="Add Category" onClick={()=> onDataSend(null)}></i>
+            <i className="ri-add-box-fill" title="Add Category" onClick={()=> onDataSend(null)}></i>
           </div>
           <input type="text" placeholder="Search By Name" onChange={handleChange} />
         </div>
