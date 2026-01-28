@@ -41,3 +41,17 @@ export const resetPwd = async (payload) =>{
 
     return response;
 }
+
+export const signInAdmin = async (payload) =>
+{
+    const request = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }
+
+    const response = await fetch(`${BASEURL_USER}Sign`, request)
+        .then(response => response.json());
+
+    return response;
+}

@@ -30,6 +30,13 @@ const Footer = () => {
                 <p><Link to="/">Catlog</Link></p>
                 <p><Link to="/contact">Contact</Link></p>
             </div>
+              <div className='social-media'>
+                Social Media &nbsp;
+                <i class="ri-facebook-circle-fill ri-lg"></i>
+                <i class="ri-pinterest-fill ri-lg"></i>
+                <i class="ri-instagram-fill ri-lg"></i>
+                <i class="ri-twitter-x-fill ri-lg"></i>
+            </div>
         </div>
          <p>&copy; {new Date().getFullYear()} eCommerce Shop. All rights reserved.</p>
        </>

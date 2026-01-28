@@ -8,19 +8,22 @@ export const UserProvider = ({ children }) => {
 
     const isLogin = () => {
         let tokendata = localStorage.getItem('token');
-        if (!tokendata) {
-            return false; 
+        let tokenentry = localStorage.getItem('tokenentry');
+        if(!tokenentry && !tokendata)
+        {
+            return false;
         }
         return true;
     };
 
     const getProfile = () =>{
         let profileData = localStorage.getItem('profile');
-        if(!profileData)
+        let adminProfileData = localStorage.getItem('profileentry');
+        if(!profileData && !adminProfileData)
         {
           return '';  
         }
-        return JSON.parse(profileData);
+        return JSON.parse(profileData || adminProfileData);
     }
 
     return (

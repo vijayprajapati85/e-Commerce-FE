@@ -26,7 +26,7 @@ const Navbar = ({ isAdmin }) => {
     }
 
     const [products, setProducts] = useState(cartitems);
-
+    const [adminMenu, setAdminMenu] = useState(isAdmin);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -54,13 +54,39 @@ const Navbar = ({ isAdmin }) => {
         setIsCartOpen(false);
     };
 
-    const handleLogout = () => {
+
+     const clearSession = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('profile');
         localStorage.removeItem('cartItems');
-        setIsMenuOpen(false);
-        navigate('/login');
     };
+
+     const clearAdminSession = () => {
+        localStorage.removeItem('tokenentry');
+        localStorage.removeItem('profileentry');
+    };
+
+    const handleLogout = () => {
+        if (isAdmin) {
+            clearAdminSession();
+            navigate('/admin/login');
+        }
+        else {
+            clearSession();
+            navigate('/login');
+        }
+        setIsMenuOpen(false);
+    };
+
+    useState(() => {
+        if (isAdmin) {
+            clearSession();
+        }
+        else {
+            clearAdminSession();
+        }
+        setAdminMenu(isAdmin);
+    }, [isAdmin]);
 
     return (
         <>
@@ -81,22 +107,20 @@ const Navbar = ({ isAdmin }) => {
                             <i className="ri-search-line"></i>
                         </button>
                     </div>
-                    <div style={{ display: isAdmin ? 'none' : 'flex' }}>
-                        <div onClick={handleCartClick}>
-                            <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} ri-lg`}></i>
-                            <span className="cart-count">{cartCount}</span>
-                        </div>
-                        <div style={{ padding: "0px 25px" }} onClick={handleLoginClick}>
-                            <div className="user-profile-area">
-                                <i className={`${isLogin() ? "ri-user-fill" : "ri-user-line"} ri-lg`}></i>
-                                {isMenuOpen && profile && (
-                                    <div className="user-dropdown-menu">
-                                        <p>Welcome, {`${profile.fullName}`}!</p>
-                                        <p>Email: {`${profile.emailId}`}</p>
-                                        <a onClick={handleLogout}>Logout</a>
-                                    </div>
-                                )}
-                            </div>
+                    <div style={{ display: isAdmin ? 'none' : 'flex' }} onClick={handleCartClick}>
+                        <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} ri-lg`}></i>
+                        <span className="cart-count">{cartCount}</span>
+                    </div>
+                    <div style={{ padding: "0px 25px" }} onClick={handleLoginClick}>
+                        <div className="user-profile-area">
+                            <i className={`${isLogin() ? "ri-user-fill" : "ri-user-line"} ri-lg`}></i>
+                            {isMenuOpen && profile && (
+                                <div className="user-dropdown-menu">
+                                    <p>Welcome, {`${profile.fullName}`}!</p>
+                                    <p>Email: {`${profile.emailId}`}</p>
+                                    <a onClick={handleLogout}>Logout</a>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

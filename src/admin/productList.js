@@ -4,6 +4,7 @@ import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import {getAllProducts} from '../apis/productApi';
+import { useNavigate } from 'react-router-dom';
 import { CURRENCY_CODE, customTableStyles } from '../constants/constant';
 
 	const formatAmount = (value) => {
@@ -17,6 +18,8 @@ import { CURRENCY_CODE, customTableStyles } from '../constants/constant';
   
   const ProductList = ({ onDataSend, updateData }) => {
 
+	const navigate = useNavigate();
+    
 	const columns = [
 		{
 			name: 'Name',
@@ -73,11 +76,23 @@ import { CURRENCY_CODE, customTableStyles } from '../constants/constant';
 	const [filter, setFilter] = useState([]);
 
 	const getProducts = async()=>{
-        const response = await getAllProducts();
-        if (response.data != null) {
-            setDataList(response.data);
-			setFilter(response.data);
-        }
+
+		let token = localStorage.getItem("tokenentry");
+
+        const response = await getAllProducts(token);
+
+		if (response.ok) {
+			const responseData = await response.json();
+
+			if (responseData.data != null) {
+				setDataList(responseData.data);
+				setFilter(responseData.data);
+			}
+		}
+		if (response.status === 401) {
+			navigate('/admin/login');
+		}
+
     }
 
     useEffect(() => {
