@@ -12,9 +12,11 @@ export const submitProduct = async (payload) => {
     if(payload.ImageFile)
         data.append("ImageFile", payload.ImageFile);
 
+    let token = localStorage.getItem("tokenentry");
+
     const request = {
         method :'POST',
-        headers : {'userid' : 'vijayp'},
+        headers : {'Content-Type': 'application/json','userid' : 'vijayp', 'Authorization' : `Bearer ${token}`},
         body : data
     }
 
@@ -24,12 +26,15 @@ export const submitProduct = async (payload) => {
     return response;
 };
 
-export const getAllProducts = async () => {
+export const getAllProducts = async (token) => {
      const request = {
         method :'GET',
+        headers: { 'Content-Type': 'application/json',
+                'Authorization' : `Bearer ${token}`
+             }
     }
     const response = await fetch(`${BASEURL_PRODUCT}GetAll`, request)
-    .then(response => response.json());
+   // .then(response => response.json());
     
     return response;
 }

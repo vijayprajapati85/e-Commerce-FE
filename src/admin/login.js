@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { signInAdmin } from '../apis/userApi';
+
+const AdminLogin = () => {
+
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    if(localStorage.getItem("tokenentry"))
+    {
+        navigate('/admin/products');
+    }
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+         const postData = {
+            emailId: username,
+            password: password
+        }
+        const response = await signInAdmin(postData);
+
+        if (response.statusCode === 200) {
+            localStorage.setItem("tokenentry", response.data.token);
+            const profile =
+            {
+                emailId: response.data.emailId,
+                fullName: response.data.fullName
+            }
+            localStorage.setItem("profileentry", JSON.stringify(profile));
+            toast.success(response.title, {
+                style: {
+                    width: '350px',
+                },
+            });
+            navigate('/admin/products');
+        }
+        else {
+            toast.error(response.title);
+        }
+    };
+
+    return (
+       <>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <form onSubmit={handleLogin}>
+                    <h2>Login to Your Account</h2>
+                    <p>Welcome back! Please enter your details.</p>
+                    <div class="input-group">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required />
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required/>
+                    </div>
+                    <button type="submit" class="login-button">Log In</button>
+                </form>
+            </div>
+        </>
+    );
+}
+
+export default AdminLogin;

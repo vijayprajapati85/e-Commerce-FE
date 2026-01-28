@@ -58,3 +58,7 @@
   .css-16xfy0z-control{
     background-color: transparent !important;
   }
+
+  .delete-confirmation p{
+    color: white !important;
+  }

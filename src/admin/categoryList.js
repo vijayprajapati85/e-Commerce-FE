@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import DataTable from 'react-data-table-component';
+import { toast } from 'react-toastify';
 import { getCategoryAll, deleteCategory } from '../apis/categoryApi';
 import { ExpandedComponent } from "./expandedComponent";
 import Modal from "./Modal";
@@ -59,6 +60,12 @@ const CategoryList = ({onDataSend, updateData}) => {
     if (response.statusCode === 200) {
       setFilter(filterData.filter(subCat => subCat.id !== deleteItemName.id));
       setIsDeleteModalOpen(false);
+    }
+    else {
+      toast.error("Not rights to delete category.", {
+        style: {
+            width: '400px',
+        }});
     }
   }
 

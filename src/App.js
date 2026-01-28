@@ -5,6 +5,7 @@ import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 
 import Home from './user/Home';
+import AdminLogin from './admin/login';
 import ProductActions from './admin/product';
 import Dashboard from './admin/dashboard';
 import UserForm from './user/UserForm';
@@ -28,7 +29,8 @@ const App = () => {
             <Route path="/reset" element={<UserForm />} />
             <Route path="/admin/products" element={<ProductActions />} />
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/contact" element={<UserForm />} />
           </Routes>
         </div>

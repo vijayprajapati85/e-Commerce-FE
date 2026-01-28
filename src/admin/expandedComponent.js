@@ -6,6 +6,7 @@ import { DeleteConfirmation } from './deleteConfirmation';
 import { deleteSubCategory } from '../apis/subCategoryApi';
 import { CustomNoDataComponent } from './CustomNoDataComponent';
 import { getSubCategory } from '../apis/subCategoryApi';
+import { toast } from 'react-toastify';
 
 export const customTableStyles = {
 	table: {
@@ -128,6 +129,13 @@ export const ExpandedComponent = ({ data }) => {
     if (response.statusCode === 200) {
       dataItem.subCategories = dataItem.subCategories.filter(subCat => subCat.id !== editData.id) || [];
       setIsDeleteModalOpen(false);
+    }
+    else {
+      // Handle error case, e.g., show a notification
+      toast.error("Not rights to delete sub-category.", {
+        style: {
+            width: '400px',
+        }});
     }
   }
 

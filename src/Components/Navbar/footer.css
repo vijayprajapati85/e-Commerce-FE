@@ -14,3 +14,8 @@ a {
     text-decoration: none;
     color: #fff;
 }
+
+.social-media i {
+    cursor: pointer;
+    padding: 0px 7px;
+}
