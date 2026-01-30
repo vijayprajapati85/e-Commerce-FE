@@ -49,11 +49,12 @@
   cursor: pointer;
   padding: 0px;
   margin: 0px;
+  color: #1d668d;
 }
 
-.close-button:hover {
-  color: #10b981;
-}
+/* .close-button:hover {
+  color: #1d668d;
+} */
 
 .modal-body {
   padding-top: 20px;
@@ -79,8 +80,8 @@
 }
 
 .add-to-cart-btn {
-  background-color: #10b981; 
-  color: white;
+  background-color: #00b4d9; 
+  color: #fff;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;

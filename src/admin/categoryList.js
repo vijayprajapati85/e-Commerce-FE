@@ -57,7 +57,7 @@ const CategoryList = ({onDataSend, updateData}) => {
   
   const confirmDeleteModal = async () => {
     const response = await deleteCategory(deleteItemName.id);
-    if (response.statusCode === 200) {
+    if (response.status === 200) {
       setFilter(filterData.filter(subCat => subCat.id !== deleteItemName.id));
       setIsDeleteModalOpen(false);
     }

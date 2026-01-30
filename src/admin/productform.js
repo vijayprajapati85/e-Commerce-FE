@@ -174,8 +174,10 @@ const ProductForm = ({onClose, formData, onUpdate}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="contact-form">
-            <h3>{isEditForm ? "Edit" : "Add"} Product</h3>
+      <>      
+      <h3>{isEditForm ? "Edit" : "Add"} Product</h3>
+      
+      <form onSubmit={handleSubmit} className="contact-form">
             <Select
                 value={selectedCatOption}
                 required= {true}
@@ -218,6 +220,7 @@ const ProductForm = ({onClose, formData, onUpdate}) => {
             )}
             <button type="button" onClick={onClose}>Close</button>
         </form>
+        </>
     )
 }
 

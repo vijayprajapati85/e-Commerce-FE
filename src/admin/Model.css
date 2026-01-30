@@ -19,8 +19,8 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1001;
     text-align: center;
-    border: 3px solid #10b981;
-    background-color:#1F06D4;
+    /* border: 3px solid #10b981; */
+    background-color:#fff;
   }
   
   .modal-content h3{
@@ -36,9 +36,10 @@
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 1px solid #fff;
+    border: 1px solid #194e6c;
     border-radius: 4px;
   }
+
   
   .contact-form button {
     margin-top: 15px;
@@ -51,7 +52,7 @@
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    border: 2px solid #22c85878;
+    border: 2px solid #194e6c;
     border-radius: 4px;
   }
 
@@ -60,5 +61,5 @@
   }
 
   .delete-confirmation p{
-    color: white !important;
+    color: #000 !important;
   }

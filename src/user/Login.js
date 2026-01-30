@@ -78,9 +78,11 @@ const Login = () =>{
     return(
         <>
             <div class="login-container">
-                <form onSubmit={handleSubmit}>
+                <div className='login-header'>
                     <h2>Login to Your Account</h2>
                     <p>Welcome back! Please enter your details.</p>
+                </div>
+                <form onSubmit={handleSubmit}>
                     <div class="input-group">
                         <label for="username">Email</label>
                         <input type="text" id="username" name="username" onChange={handleEmailChange} required />

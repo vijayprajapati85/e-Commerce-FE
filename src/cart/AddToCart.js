@@ -97,9 +97,9 @@ const AddToCart = ({ product, isButton, isFinalCart }) => {
             <div className='cart-quantity'>
              
              {isLogin() && <>
-                <i className="quantity-btn ri-checkbox-indeterminate-fill ri-2x" onClick={localQuantity > 1 ? onDecrementClick : null}></i> 
+                <i className="quantity-btn ri-checkbox-indeterminate-fill ri-1x" onClick={localQuantity > 1 ? onDecrementClick : null}></i> 
                 <span className="quantity-value">{localQuantity}</span>
-                <i className="quantity-btn ri-add-box-fill ri-2x" onClick={onIncrementClick}></i>
+                <i className="quantity-btn ri-add-box-fill ri-1x" onClick={onIncrementClick}></i>
           </>
           }
                 {isButton &&
