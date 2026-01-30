@@ -4,12 +4,12 @@
 
 button {
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 15px;
   border: none;
   color: white;
   cursor: pointer;
-  background-color: #4caf50;
+  background-color: #00b4d9;
   font-size: 16px;
   width: 80px;
 }
@@ -27,7 +27,7 @@ summary {
   cursor: pointer;
   padding: 10px 10px;
   background: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: #194e6c;
 }
 
 /* Style the content when the details element is open */
@@ -52,8 +52,12 @@ details[open] .content {
 .search input {
   padding: 0 5px;
   height: 30px;
-  border: 1px solid #fff;
+  border: 1px solid #194e6c;
   border-radius: 5px;
+}
+
+.search input :focus {
+  border: 1px solid #00b4d9;
 }
 
 .listbutton {

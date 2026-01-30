@@ -66,13 +66,13 @@ const CartDetail = ({onClose}) =>{
     return(<>
         <div className='finalcart finalcart-active'>
            {cartList && cartList.length > 0 && <h2 className='finalcart-title'>Your Cart</h2> } 
-                { cartList && cartList.length > 0 &&
+              <div className="finalcart-outer-content">  { cartList && cartList.length > 0 &&
                     cartList.map((item) =>(
                         <div className='finalcart-content'>
                             <div className='finalcart-box'>
                                 <img className='finalcart-img' src={item.img} alt={item.name}/>
                                 <div className='finalcart-detail'>
-                                    <h2 className='finalcart-product-title'>{item.name}</h2>
+                                    <h5 className='finalcart-product-title'>{item.name}</h5>
                                     <span className='finalcart-price'>{CURRENCY_CODE}{item.price}</span>
                                     <div className='finalcart-quantity'>
                                         <AddToCart product={item} isButton={false} isFinalCart={true} />
@@ -83,6 +83,7 @@ const CartDetail = ({onClose}) =>{
                         </div>
                     ))
                 }
+                </div>
                 {(!cartList || cartList === undefined || cartList.length === 0) &&
                     <h3>Your Cart is empty.</h3>
 
@@ -93,9 +94,9 @@ const CartDetail = ({onClose}) =>{
             </div>
             <button className='btn-buy' disabled={isLoading || (!cartList || cartList === undefined || cartList.length === 0)} onClick={orderPlace}>
                  {isLoading ? (
-        <div className="spinner"></div> // Conditionally render the spinner
+        <div className="spinner"></div>
       ) : (
-        'Send Email' // Or an email icon component
+        'Send Email' 
       )}
 
             </button>

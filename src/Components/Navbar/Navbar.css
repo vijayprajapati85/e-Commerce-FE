@@ -3,7 +3,7 @@
 .site-header {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   padding: 10px 0;
-  border-bottom: 3px solid #10b981; /* A nice accent color */
+  /* border-bottom: 3px solid #10b981;  */
 }
 
 .header-container {
@@ -21,7 +21,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  color: #ffff;
+  color: #000;
 }
 
 .site-logo i {
@@ -44,7 +44,7 @@
   font-size: 1rem;
 }
 ::placeholder {
-  color: white;
+  color: #000;
   opacity: 0.5;
 }
 .search-bar input:hover, input:focus {
@@ -52,8 +52,8 @@
 }
 
 .search-button {
-  background-color: white;
-  color: white;
+  background-color: #00b4d9;
+  /* color: white; */
   border: none;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
@@ -66,17 +66,27 @@
   background-color: transparent;
 }
 
-.search-button:hover {
+/* .search-button:hover {
   background-color: #1729cb94 !important;
-}
+} */
 
-.ri-search-line:before
+.ri-search-line:before, .ri-user-line:before, .ri-shopping-cart-line:before
 {
-  color: black;
+  color: #fff;
 }
 
-.cart-icon, a:hover, .ri-lg {
+.cart-icon, a:hover{
   cursor: pointer;
+  color: #000;
+}
+a:hover{
+  cursor: pointer;
+  color: #00b4d9;
+}
+
+.ri-lg {
+  cursor: pointer;
+  color: #fff;
 }
 
 /* Basic Responsiveness */
@@ -112,7 +122,8 @@
     z-index: 1;
     border-radius: 4px;
     margin-top: 5px;
-    background-color: #1F06D4;
+    background-color: #194e6c;
+    color: #fff;
 }
 
 .user-dropdown-menu p {
@@ -128,4 +139,26 @@
 .user-dropdown-menu button {
     margin-top: 10px;
     width: 100%;
+}
+
+.account-icon {
+   padding: 7px 7px;
+   background-color: #00b4d9;
+   border-radius: 4px;
+}
+
+.headercart-icon {
+   padding: 7px 7px;
+   background-color: #1d668d;
+   border-radius: 4px;
+}
+
+.cart-count{
+  border-radius: 14px;
+    background-color: #00b4d9;
+    position: absolute;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 10px;
+    top: 15px;
 }

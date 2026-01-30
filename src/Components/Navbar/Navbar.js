@@ -97,21 +97,21 @@ const Navbar = ({ isAdmin }) => {
                         {/* Use your actual logo image or text here */}
                         <Link to="/" className="site-logo">
                             <i className="ri-shopping-bag-line"></i>
-                            eCommerce Shop
+                            Jiyazon Shop
                         </Link>
                     </div>
 
                     <div className="search-bar">
-                        <input type="text" placeholder="Search products..." />
+                        <input type="text" id='searchproduct' name='search' placeholder="Search products..." />
                         <button className="search-button">
                             <i className="ri-search-line"></i>
                         </button>
                     </div>
-                    <div style={{ display: isAdmin ? 'none' : 'flex' }} onClick={handleCartClick}>
+                    <div className='headercart-icon' style={{ display: isAdmin ? 'none' : '' }} onClick={handleCartClick}>
                         <i className={`${cartCount ? "ri-shopping-cart-fill" : "ri-shopping-cart-line"} ri-lg`}></i>
-                        <span className="cart-count">{cartCount}</span>
+                        <span className={`${cartCount ? "cart-count" : ""}`}>{cartCount}</span>
                     </div>
-                    <div style={{ padding: "0px 25px" }} onClick={handleLoginClick}>
+                    <div className='account-icon' onClick={handleLoginClick}>
                         <div className="user-profile-area">
                             <i className={`${isLogin() ? "ri-user-fill" : "ri-user-line"} ri-lg`}></i>
                             {isMenuOpen && profile && (

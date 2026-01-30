@@ -3,8 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
-  color: white;
-  background-color: #1F06D4;
+  color: #000;
+  background-color: #fff;
 }
 
 .content-area {
@@ -43,7 +43,7 @@ body {
 .alert
 {
   font-size: smaller;
-  color: yellow !important;
+  color: #1d668d !important;
 }
 
 /* Make the background of the success icon container transparent */

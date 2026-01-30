@@ -126,7 +126,8 @@ export const ExpandedComponent = ({ data }) => {
 
   const confirmDeleteModal = async () => {
     const response = await deleteSubCategory(editData.id);
-    if (response.statusCode === 200) {
+    debugger;
+    if (response.status === 200) {
       dataItem.subCategories = dataItem.subCategories.filter(subCat => subCat.id !== editData.id) || [];
       setIsDeleteModalOpen(false);
     }

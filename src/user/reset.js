@@ -35,9 +35,11 @@ const Reset = () => {
     return (
         <>
             <div class="login-container">
-                <form onSubmit={handleSubmit}>
+                <div className='login-header'>
                     <h2>Reset Your Password</h2>
                     <p>Please enter your details.</p>
+                </div>
+                <form onSubmit={handleSubmit}>
                     <div class="input-group">
                         <label for="username">Email</label>
                         <input type="text" id="username" name="username" onChange={handleEmailChange} required />

@@ -50,9 +50,11 @@ const Contact = () => {
   return (
     <div>
          <div class="login-container">
-                <form onSubmit={handleSubmit}>
-                    <h2>We would love to hear from you.</h2>
+             <div className='login-header'>
+                   <h2>We would love to hear from you.</h2>
                     <p>If you’ve got great products your making or looking to work with us then drop us a line.</p>
+                </div>
+                <form onSubmit={handleSubmit}>
                     <div class="input-group">
                         <label for="contact-fullname">Name</label>
                         <input type="text" id="contact-fullname" onChange={handleNameChange} required />

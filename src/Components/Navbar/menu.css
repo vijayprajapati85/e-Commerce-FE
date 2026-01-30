@@ -10,9 +10,10 @@ ul li{
 }
 
 .glass-nav {
-  border-bottom: 3px solid #10b981;
+  /* border-bottom: 3px solid #10b981; */
   backdrop-filter: blur(12px);
   padding: 20px 120px;
+  background-color: #1d668d;
 }
 
 .nav-list {
@@ -56,7 +57,7 @@ ul li{
   visibility: visible;
   border-bottom: #00d2ff 2px solid;
   margin-top: 13px;
-  background-color: #1F06D4;
+  background-color: #194e6c;
 }
 
 .nav-item .nav-list a {

@@ -9,36 +9,48 @@ const Footer = () => {
             <div>
                 <img src="/bg.jpeg" alt="Company Logo" width="150" height="50" />
             </div>
+            <h4>Company Address</h4>    
             <div>
-                Company Address
+                <h4>Information</h4>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
             </div>
             <div>
-                Information
-                <p><Link to="/">Home</Link></p>
-                <p><Link to="/">Catlog</Link></p>
-                <p><Link to="/contact">Contact</Link></p>
+                <h4>Contact</h4>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
             </div>
             <div>
-                Contact
-                <p><Link to="/">Home</Link></p>
-                <p><Link to="/">Catlog</Link></p>
-                <p><Link to="/contact">Contact</Link></p>
+                <h4>Help</h4>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
             </div>
             <div>
-                Services
-                <p><Link to="/">Home</Link></p>
-                <p><Link to="/">Catlog</Link></p>
-                <p><Link to="/contact">Contact</Link></p>
+                <h4>Services</h4>
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
             </div>
               <div className='social-media'>
-                Social Media &nbsp;
+               <h4>Social Media</h4> &nbsp;
                 <i class="ri-facebook-circle-fill ri-lg"></i>
                 <i class="ri-pinterest-fill ri-lg"></i>
                 <i class="ri-instagram-fill ri-lg"></i>
                 <i class="ri-twitter-x-fill ri-lg"></i>
             </div>
         </div>
-         <p>&copy; {new Date().getFullYear()} eCommerce Shop. All rights reserved.</p>
+         <p>&copy; {new Date().getFullYear()} Jiyazon Shop. All rights reserved.</p>
        </>
     );
 }

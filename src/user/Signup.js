@@ -41,8 +41,11 @@ const Signup = () => {
     return (
         <>
             <div class="login-container">
-                <form onSubmit={handleSubmit}>
+                <div className='login-header'>
                     <h2>Create Your Account</h2>
+                    <p>Please enter your details.</p>
+                </div>
+                <form onSubmit={handleSubmit}>
                     <div class="input-group">
                         <label for="signup-fullname">Full Name</label>
                         <input type="text" id="signup-fullname" onChange={handleNameChange} required />

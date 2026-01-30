@@ -1,6 +1,7 @@
 .site-footer{
     text-align: center;
-    border-top: 3px solid #10b981;
+    /* border-top: 3px solid #10b981; */
+    background-color: #1d668d;
 }
 
 .footer-section{
@@ -8,6 +9,19 @@
     display: flex;
     gap: 50px;
     justify-content: center;
+}
+
+footer .footer-section h4{
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+footer .footer-section ul{
+ text-align: center;
+    flex-direction: column;
+    display: flex;
+    row-gap: 14px;
+    padding: inherit;
 }
 
 a {
@@ -18,4 +32,9 @@ a {
 .social-media i {
     cursor: pointer;
     padding: 0px 7px;
+}
+footer p{
+    color: #fff;
+    font-size: 14px;
+    padding-bottom: 15px;
 }
