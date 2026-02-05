@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { signInAdmin } from '../apis/userApi';
 
+import '../user/userform.css'
 const AdminLogin = () => {
 
     const navigate = useNavigate();
@@ -10,15 +11,14 @@ const AdminLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    if(localStorage.getItem("tokenentry"))
-    {
+    if (localStorage.getItem("tokenentry")) {
         navigate('/admin/products');
     }
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-         const postData = {
+        const postData = {
             emailId: username,
             password: password
         }
@@ -45,21 +45,30 @@ const AdminLogin = () => {
     };
 
     return (
-       <>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <form onSubmit={handleLogin}>
-                    <h2>Login to Your Account</h2>
-                    <p>Welcome back! Please enter your details.</p>
-                    <div class="input-group">
-                        <label for="username">User Name</label>
-                        <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required />
+        <>
+            <div className="main-content">
+                <div className="landing-text-area">
+                    <h2>Landing Page Template background</h2>
+                    <h3>Some another contet plage here.....</h3>
+                </div>
+                <div className='login-container'>
+                    <div className='login-header'>
+                        <h2>Login to Your Account</h2>
+                        <p>Welcome back! Please enter your details.</p>
                     </div>
-                    <div class="input-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required/>
-                    </div>
-                    <button type="submit" class="login-button">Log In</button>
-                </form>
+                    <form onSubmit={handleLogin}>
+                        <div class="input-group">
+                            <label for="username">User Name</label>
+                            <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required />
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required />
+                        </div>
+                        <button type="submit" class="login-button">Log In</button>
+                    </form>
+                </div>
+
             </div>
         </>
     );

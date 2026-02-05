@@ -45,6 +45,7 @@
 .finalcart-active{
     right: 300px;
     top: 50px;
+    z-index: 1000;
 }
 
 .finalcart-title{

@@ -124,6 +124,7 @@ a:hover{
     margin-top: 5px;
     background-color: #194e6c;
     color: #fff;
+    z-index: 10000;
 }
 
 .user-dropdown-menu p {

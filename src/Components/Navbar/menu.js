@@ -32,7 +32,7 @@ export const UserMenu = () => {
 
      // Recursive component to render submenus
   const RenderMenu = ({ items, menuName, CatId }) => (
-    <ul className="nav-list">
+    <ul className="nav-list-dropdown">
       {items.map(item => (
         <li key={item.id} className={`nav-item ${item.subCategories?.length ? 'has-sub' : ''}`}>
           <a onClick={() => onLinkClick(item.name, menuName, item.id, CatId )}>{item.name}</a>
@@ -48,8 +48,8 @@ export const UserMenu = () => {
 
 export const AdminMenu = () => {
   return (
-    <nav className="glass-nav">
-      <ul className="nav-list">
+    <nav className="glass-nav admin">
+      <ul className="nav-list-dropdown">
         <li className="nav-item"><Link to='/admin/dashboard'>Dashboard</Link></li>
         <li className="nav-item"><Link to='/admin/products'>Products</Link></li>
       </ul></nav>

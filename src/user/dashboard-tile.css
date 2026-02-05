@@ -1,0 +1,69 @@
+.shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 68px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; 
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* Gradient overlay for better text readability */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Stack text and button vertically */
+    justify-content: flex-end; /* Align content to the bottom */
+    height: 100%; /* Makes the overlay cover the whole card */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+    opacity: 0.95;
+}
+
+.overlay h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.shop-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    align-self: flex-start; /* Align button to the start of the cross axis */
+    transition: background-color 0.3s ease;
+}
+
+.shop-button:hover {
+    background-color: #ddd;
+}
