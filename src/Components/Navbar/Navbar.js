@@ -25,8 +25,8 @@ const Navbar = ({ isAdmin }) => {
         }
     }
 
-    const [products, setProducts] = useState(cartitems);
-    const [adminMenu, setAdminMenu] = useState(isAdmin);
+    // const [products, setProducts] = useState(cartitems);
+    // const [adminMenu, setAdminMenu] = useState(isAdmin);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -85,7 +85,7 @@ const Navbar = ({ isAdmin }) => {
         else {
             clearAdminSession();
         }
-        setAdminMenu(isAdmin);
+        //setAdminMenu(isAdmin);
     }, [isAdmin]);
 
     return (
@@ -118,6 +118,7 @@ const Navbar = ({ isAdmin }) => {
                                 <div className="user-dropdown-menu">
                                     <p>Welcome, {`${profile.fullName}`}!</p>
                                     <p>Email: {`${profile.emailId}`}</p>
+                                    <p><Link to="/orderdetail">Track Order</Link></p>
                                     <a onClick={handleLogout}>Logout</a>
                                 </div>
                             )}
@@ -129,7 +130,7 @@ const Navbar = ({ isAdmin }) => {
             {isCartOpen && (
                 <CartDetail
                     onClose={handleCloseCart}
-                    products={products}
+                    products={cartitems}
                 />
             )}
         </>

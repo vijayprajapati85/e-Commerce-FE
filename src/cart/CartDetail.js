@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import { CURRENCY_CODE } from '../constants/constant';
 import './cart.css';
 import './loading.css';
-import '../assets/company-logo.png';
 import { useCart } from '../cart/CartContext';
 import Modal from "../admin/Modal";
 import { DeleteConfirmation } from '../admin/deleteConfirmation';

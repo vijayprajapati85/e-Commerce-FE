@@ -9,7 +9,9 @@ import AdminLogin from './admin/login';
 import ProductActions from './admin/product';
 import Dashboard from './admin/dashboard';
 import UserForm from './user/UserForm';
+import DashboardUser from './user/dashboard';
 import Footer from './Components/Navbar/Footer';
+import OrderDetail from './cart/OrderDetail';
 
 const App = () => {
   const location = useLocation();
@@ -23,7 +25,8 @@ const App = () => {
           <Routes>
             <Route path="/:cat/:catid/:sub/:subid" element={<Home />} />
             <Route path="/:cat/:catid" element={<Home />} />
-            <Route path="/" element={<Home />} />
+            <Route path="/:catname" element={<Home />} />
+            <Route path="/" element={<DashboardUser />} />
             <Route path="/login" element={<UserForm />} />
             <Route path="/signup" element={<UserForm />} />
             <Route path="/reset" element={<UserForm />} />
@@ -32,6 +35,7 @@ const App = () => {
             <Route path="/admin" element={<AdminLogin />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/contact" element={<UserForm />} />
+            <Route path="/orderdetail" element={<OrderDetail />} />
           </Routes>
         </div>
       <footer className="site-footer">

@@ -1,72 +1,75 @@
-ul{
-    flex: 1;
-    list-style: none;
-    text-align: center;
-}
-ul li{
-    display: inline-block;
-    margin: 0px 10px;
-    cursor: pointer;
-}
-
 .glass-nav {
-  /* border-bottom: 3px solid #10b981; */
-  backdrop-filter: blur(12px);
-  padding: 20px 120px;
+  padding: 10px 250px;
   background-color: #1d668d;
 }
+.admin {
+  padding: 10px 600px;
+}
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
+.glass-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .nav-item {
-  position: relative;
+    position: relative;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+    background-color: #004085;
+    color: white;
 }
 
 .nav-item a {
-  text-decoration: none;
-  font-weight: 500;
-  padding: 8px 12px;
-  transition: color 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-/* Submenu Styles */
-.nav-item .nav-list {
-  position: absolute;
-  top: 100%;
-  left: -20px;
-  flex-direction: column;
-  min-width: 210px;
-  gap: 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.3s ease-out;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.nav-list-dropdown {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #1d668d;
 }
 
-/* Show submenu on hover */
-.nav-item:hover > .nav-list {
-  opacity: 1;
-  visibility: visible;
-  border-bottom: #00d2ff 2px solid;
-  margin-top: 13px;
-  background-color: #194e6c;
+.nav-list-dropdown .nav-item {
+    padding: 10px 20px;
+    color: #f5f5f5;
+    background-color: transparent;
 }
 
-.nav-item .nav-list a {
-  display: block;
-  padding: 15px 25px;
-  font-size: 0.9rem;
-}
-
-.nav-item .nav-list a:hover {
-  background: rgba(255, 255, 255, 0.1);
+.nav-list-dropdown .nav-item a:hover {
   color: #00d2ff;
+}
+
+.nav-item .nav-list-dropdown {
+    position: absolute;
+    top: 100%;
+    left: -20px;
+    flex-direction: column;
+    min-width: 210px;
+    gap: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease-out;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.nav-item:hover>.nav-list-dropdown {
+    opacity: 1;
+    visibility: visible;
+    border-bottom: #00d2ff 2px solid;
+    margin-top: 1px;
+    background-color: #194e6c;
 }

@@ -65,3 +65,31 @@ export const OrderPlace =  async () => {
         return null;
     }
 }
+export const TrackOrder =  async () => {
+
+     try {
+
+         let token = localStorage.getItem("token");
+
+        const request = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization' : `Bearer ${token}` },
+        }
+
+         const response = await fetch(`${BASEURL_CART}TrackOrder`, request)
+           
+         //.then(response => response.json());
+
+         if(response.ok) {
+            const data = await response.json();
+            return data;
+         } else {
+            console.error("Failed to track order. Status:", response.status);
+            return { success: false, data: null };
+         }
+    }
+    catch (error) {
+        console.error("Error Track Order:", error);
+        return null;
+    }
+}

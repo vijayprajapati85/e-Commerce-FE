@@ -1,0 +1,72 @@
+.carousel-container {
+    display: flex; /* */
+    overflow-x: auto; /* Enables horizontal scrolling when content exceeds container width */
+    scroll-snap-type: x mandatory; /* Ensures the scroll snaps to the center of each item */
+    -webkit-overflow-scrolling: touch; /* Adds momentum scrolling on iOS devices */
+    gap: 20px; /* Adds space between the cards */
+    padding: 0 20px; /* Adds padding so the first/last items aren't stuck to the edge */
+}
+
+.popularcard {
+    flex-shrink: 0;
+    width: 300px; /* Set a fixed width for your cards */
+    scroll-snap-align: center; 
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    height: 200px;
+}
+
+/* Optional: Hide the scrollbar for a cleaner look (Webkit browsers only) */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.pagination-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #717171;
+}

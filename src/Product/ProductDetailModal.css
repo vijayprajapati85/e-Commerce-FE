@@ -67,7 +67,7 @@
   width: 40%;
   border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 72%);
 }
 
 .modal-details {

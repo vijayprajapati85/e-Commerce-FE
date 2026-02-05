@@ -33,7 +33,7 @@ const Home = () => {
         }
     }
 
-    const { catid, subid } = useParams();
+    const { catid, subid, catname } = useParams();
     const location = useLocation();
     const [data, setData] = useState(null);
 
@@ -47,8 +47,15 @@ const Home = () => {
             };
             setData(postData);
         }
-    }, [catid, subid, location.pathname]);
-
+        else if (catname) {
+            const postData = {
+                CatId: null,
+                SubCatId: null,
+                Name: catname
+            };
+            setData(postData);
+        }
+    }, [catid, subid, catname, location.pathname]);
     useEffect(() => {
         if (data) {
             getProduct(data);
