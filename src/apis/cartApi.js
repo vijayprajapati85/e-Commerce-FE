@@ -65,6 +65,7 @@ export const OrderPlace =  async () => {
         return null;
     }
 }
+
 export const TrackOrder =  async () => {
 
      try {
@@ -90,6 +91,33 @@ export const TrackOrder =  async () => {
     }
     catch (error) {
         console.error("Error Track Order:", error);
+        return null;
+    }
+}
+
+export const GetOrderStatus =  async () => {
+
+     try {
+
+         let token = localStorage.getItem("tokenentry");
+
+        const request = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization' : `Bearer ${token}` },
+        }
+
+         const response = await fetch(`${BASEURL_CART}OrderStatus`, request)
+           
+         if(response.ok) {
+            const data = await response.json();
+            return data;
+         } else {
+            console.error("Failed to get order status. Status:", response.status);
+            return { success: false, data: null };
+         }
+    }
+    catch (error) {
+        console.error("Error getting order status:", error);
         return null;
     }
 }
