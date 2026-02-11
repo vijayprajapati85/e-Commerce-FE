@@ -27,7 +27,6 @@ const App = () => {
             <Route path="/:cat/:catid" element={<Home />} />
             <Route path="/:catname" element={<Home />} />
             <Route path="/" element={<DashboardUser />} />
-            <Route path="/login" element={<UserForm />} />
             <Route path="/signup" element={<UserForm />} />
             <Route path="/reset" element={<UserForm />} />
             <Route path="/admin/products" element={<ProductActions />} />
@@ -36,6 +35,7 @@ const App = () => {
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/contact" element={<UserForm />} />
             <Route path="/orderdetail" element={<OrderDetail />} />
+            <Route path="/login" element={<UserForm />} />
           </Routes>
         </div>
       <footer className="site-footer">

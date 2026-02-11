@@ -3,9 +3,10 @@ import './dashboard-tile.css';
 
 import HealthBeautyImage from '../assets/Health & Beauty.jpg';
 import HouseHold from '../assets/HouseHold.jpg';
-import FoodCupboard from '../assets/FoodCupboard.jpg';
+import CBDProducts from '../assets/CBDProducts.jpg';
 import Confectionery from '../assets/Confectionery.jpg';
 import KidsBaby from '../assets/KidsBaby.jpg';
+import Grocery from '../assets/Grocery.jpg';
 import { Link } from 'react-router-dom';
 
 const TileShop = () => {
@@ -27,10 +28,10 @@ const TileShop = () => {
             </div>
         </div>
         <div class="card">
-            <img src={FoodCupboard} alt="Food Cupboard" />
+            <img src={CBDProducts} alt="CBD Products" />
             <div class="overlay">
-                <h2>Food Cupboard</h2>
-                <Link to="/foodcupboard" class="shop-button">Shop Now</Link>
+                <h2>CBD Products</h2>
+                <Link to="/cbdproducts" class="shop-button">Shop Now</Link>
             </div>
         </div>
         <div class="card">
@@ -45,6 +46,20 @@ const TileShop = () => {
             <div class="overlay">
                 <h2>Kids & Baby</h2>
                 <Link to="/kidsbaby" class="shop-button">Shop Now</Link>
+            </div>
+        </div>
+        <div class="card">
+            <img src={Grocery} alt="Kids & Baby" />
+            <div class="overlay">
+                <h2>Grocery</h2>
+                <Link to="/grocery" class="shop-button">Shop Now</Link>
+            </div>
+        </div>
+         <div class="card">
+            <img src={Grocery} alt="Kids & Baby" />
+            <div class="overlay">
+                <h2>Grocery</h2>
+                <Link to="/grocery" class="shop-button">Shop Now</Link>
             </div>
         </div>
     </div>

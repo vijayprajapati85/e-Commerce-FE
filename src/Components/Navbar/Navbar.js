@@ -42,7 +42,12 @@ const Navbar = ({ isAdmin }) => {
 
     const handleLoginClick = () => {
         if (!isLogin()) {
-            navigate('login');
+            if (!isAdmin) {
+                navigate('login');
+            }
+            else {
+                navigate('/admin/login');
+            }
         }
         else
         {
@@ -67,13 +72,14 @@ const Navbar = ({ isAdmin }) => {
     };
 
     const handleLogout = () => {
-        if (isAdmin) {
-            clearAdminSession();
-            navigate('/admin/login');
-        }
-        else {
+        
+        if (!isAdmin) {
             clearSession();
             navigate('/login');
+        }
+        else {
+            clearAdminSession();
+            navigate('/admin/login');
         }
         setIsMenuOpen(false);
     };
@@ -118,7 +124,7 @@ const Navbar = ({ isAdmin }) => {
                                 <div className="user-dropdown-menu">
                                     <p>Welcome, {`${profile.fullName}`}!</p>
                                     <p>Email: {`${profile.emailId}`}</p>
-                                    <p><Link to="/orderdetail">Track Order</Link></p>
+                                    {!isAdmin && (<p><Link to="/orderdetail">Track Order</Link></p>)}
                                     <a onClick={handleLogout}>Logout</a>
                                 </div>
                             )}
