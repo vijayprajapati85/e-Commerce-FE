@@ -55,13 +55,6 @@ const TileShop = () => {
                 <Link to="/grocery" class="shop-button">Shop Now</Link>
             </div>
         </div>
-         <div class="card">
-            <img src={Grocery} alt="Kids & Baby" />
-            <div class="overlay">
-                <h2>Grocery</h2>
-                <Link to="/grocery" class="shop-button">Shop Now</Link>
-            </div>
-        </div>
     </div>
     </>
     );
