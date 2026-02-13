@@ -16,7 +16,7 @@ export const submitProduct = async (payload) => {
 
     const request = {
         method :'POST',
-        headers : {'Content-Type': 'application/json','userid' : 'vijayp', 'Authorization' : `Bearer ${token}`},
+        headers : {'userid' : 'vijayp', 'Authorization' : `Bearer ${token}`},
         body : data
     }
 
