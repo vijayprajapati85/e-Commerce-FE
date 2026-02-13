@@ -12,32 +12,36 @@ const Footer = () => {
                 <h4>Information</h4>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/corporateprofile">Corporate Profile</Link></li>
                 </ul>
             </div>
             <div>
                 <h4>Contact</h4>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/corporateprofile">Corporate Profile</Link></li>
                 </ul>
             </div>
             <div>
                 <h4>Help</h4>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/corporateprofile">Corporate Profile</Link></li>
                 </ul>
             </div>
             <div>
                 <h4>Services</h4>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/">Catlog</Link></li>
+                    <li><Link to="/aboutus">About Us</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/corporateprofile">Corporate Profile</Link></li>
                 </ul>
             </div>
               <div className='social-media'>

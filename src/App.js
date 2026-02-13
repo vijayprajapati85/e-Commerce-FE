@@ -12,6 +12,8 @@ import UserForm from './user/UserForm';
 import DashboardUser from './user/dashboard';
 import Footer from './Components/Navbar/Footer';
 import OrderDetail from './cart/OrderDetail';
+import AboutUs from './Components/Navbar/aboutus';
+import CorporateProfile from './Components/Navbar/corporateprofile';
 
 const App = () => {
   const location = useLocation();
@@ -36,6 +38,8 @@ const App = () => {
             <Route path="/contact" element={<UserForm />} />
             <Route path="/orderdetail" element={<OrderDetail />} />
             <Route path="/login" element={<UserForm />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/corporateprofile" element={<CorporateProfile />} />
           </Routes>
         </div>
       <footer className="site-footer">
