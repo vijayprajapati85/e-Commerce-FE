@@ -1,0 +1,17 @@
+#para
+{
+    padding: 10px;
+} 
+
+#para h3{
+    text-align: left;
+    background-color: #194e6c;
+    color: #fff;
+    padding: 10px;
+}
+
+#para p{
+    text-align: justify;
+    padding: 10px;
+    line-height: 2;
+}
