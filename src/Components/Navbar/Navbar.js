@@ -124,7 +124,11 @@ const Navbar = ({ isAdmin }) => {
                                 <div className="user-dropdown-menu">
                                     <p>Welcome, {`${profile.fullName}`}!</p>
                                     <p>Email: {`${profile.emailId}`}</p>
-                                    {!isAdmin && (<p><Link to="/orderdetail">Track Order</Link></p>)}
+                                    {!isAdmin && (<>
+                                    <p><Link to="/userprofile">Profile</Link></p>
+                                    <p><Link to="/orderdetail">Track Order</Link></p>
+                                    </>)
+                                    }
                                     <a onClick={handleLogout}>Logout</a>
                                 </div>
                             )}
