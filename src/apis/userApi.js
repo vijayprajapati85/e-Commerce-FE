@@ -55,3 +55,26 @@ export const signInAdmin = async (payload) =>
 
     return response;
 }
+
+export const userprofile = async (payload) =>
+{
+   try {
+   
+            let token = localStorage.getItem("token");
+   
+           const request = {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json', 'Authorization' : `Bearer ${token}` },
+               body: JSON.stringify(payload)
+           }
+   
+           const response = await fetch(`${BASEURL_USER}Profile`, request)
+               .then(response => response.json());
+   
+           return response;
+       }
+       catch (error) {
+           console.error("Error update profile:", error);
+           return null;
+       }
+}

@@ -38,7 +38,9 @@ const Login = () =>{
             const profile =
             {
                 emailId: response.data.emailId,
-                fullName: response.data.fullName
+                fullName: response.data.fullName,
+                address: response.data.address,
+                mobileNo: response.data.mobileNo
             }
 
             if(response.data.orderData) {

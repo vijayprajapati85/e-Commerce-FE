@@ -10,6 +10,7 @@ import ProductActions from './admin/product';
 import Dashboard from './admin/dashboard';
 import UserForm from './user/UserForm';
 import DashboardUser from './user/dashboard';
+import Profile from './user/profile';
 import Footer from './Components/Navbar/Footer';
 import OrderDetail from './cart/OrderDetail';
 import AboutUs from './Components/Navbar/aboutus';
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/login" element={<UserForm />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/corporateprofile" element={<CorporateProfile />} />
+            <Route path="/userprofile" element={<Profile />} />
           </Routes>
         </div>
       <footer className="site-footer">

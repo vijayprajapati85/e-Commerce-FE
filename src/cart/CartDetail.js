@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddToCart from '../cart/AddToCart';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 import { CURRENCY_CODE } from '../constants/constant';
 import './cart.css';
 import './loading.css';
@@ -8,10 +9,14 @@ import { useCart } from '../cart/CartContext';
 import Modal from "../admin/Modal";
 import { DeleteConfirmation } from '../admin/deleteConfirmation';
 import { DeleteCart, OrderPlace } from '../apis/cartApi';
+import { GetUser } from '../user/UserContext'
 
 const CartDetail = ({onClose}) =>{
 
+    const navigate = useNavigate();
     const { cartList, removeLocalItem, clearCart } = useCart();
+    const { getProfile } = GetUser();
+    const profile =  getProfile();
 
     const totalAmount = cartList.reduce((sum, item) => {
         // Add the current item's price to the running total (sum)
@@ -41,6 +46,13 @@ const CartDetail = ({onClose}) =>{
       }
 
       const orderPlace = async () => {
+        if(profile.address === '' || profile.mobileNo === '')
+        {
+            toast.error("Please update your profile.");
+            navigate('/userprofile');
+            onClose();
+            return;
+        }
         setIsLoading(true);
           try {
               const response = await OrderPlace();

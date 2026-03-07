@@ -1,0 +1,51 @@
+/* Container styling */
+#profile {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+}
+
+/* Row styling using Flexbox */
+#profile div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0; /* Overriding your 10px for tighter control */
+}
+
+/* Label alignment */
+#profile label {
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    /* font-weight: bold; */
+    color: #333;
+}
+
+/* Input styling */
+#profile input {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+#profile input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.2);
+}
+
+#profile textarea {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    width: 20px;
+}
