@@ -46,10 +46,10 @@ const Footer = () => {
             </div>
               <div className='social-media'>
                <h4>Social Media</h4> &nbsp;
-                <i class="ri-facebook-circle-fill ri-lg"></i>
-                <i class="ri-pinterest-fill ri-lg"></i>
-                <i class="ri-instagram-fill ri-lg"></i>
-                <i class="ri-twitter-x-fill ri-lg"></i>
+                <i className="ri-facebook-circle-fill ri-lg"></i>
+                <i className="ri-pinterest-fill ri-lg"></i>
+                <i className="ri-instagram-fill ri-lg"></i>
+                <i className="ri-twitter-x-fill ri-lg"></i>
             </div>
         </div>
          <p>&copy; {new Date().getFullYear()} Jiyazon Shop. All rights reserved.</p>

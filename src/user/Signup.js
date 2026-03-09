@@ -40,23 +40,23 @@ const Signup = () => {
 
     return (
         <>
-            <div class="login-container">
+            <div className="login-container">
                 <div className='login-header'>
                     <h2>Create Your Account</h2>
                     <p>Please enter your details.</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="signup-fullname">Full Name</label>
                         <input type="text" id="signup-fullname" onChange={handleNameChange} required />
                     </div>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="signup-email">Email</label>
                         <input type="email" id="signup-email" onChange={handleEmailChange} required />
                     </div>
                     <p className='alert'>Note: Password will send on your email id</p>
-                    <button type="submit" class="login-button">Send Email</button>
-                     <div class="form-footer">
+                    <button type="submit" className="login-button">Send Email</button>
+                     <div className="form-footer">
                         <Link to='/reset'>Forgot password?</Link>&nbsp;&nbsp;
                         <span>Have an account? <Link to='/login'>Sign in</Link></span>
                     </div>

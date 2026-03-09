@@ -57,15 +57,15 @@ const AdminLogin = () => {
                         <p>Welcome back! Please enter your details.</p>
                     </div>
                     <form onSubmit={handleLogin}>
-                        <div class="input-group">
+                        <div className="input-group">
                             <label for="username">User Name</label>
                             <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)} required />
                         </div>
-                        <div class="input-group">
+                        <div className="input-group">
                             <label for="password">Password</label>
                             <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} required />
                         </div>
-                        <button type="submit" class="login-button">Log In</button>
+                        <button type="submit" className="login-button">Log In</button>
                     </form>
                 </div>
 

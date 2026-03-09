@@ -83,8 +83,8 @@ const Profile = () => {
                         placeholder="Enter 10-digit number"
                     />
                 </div>
-                <div class="button-container">
-                    <button type="submit" class="submit-btn">Save Profile</button>
+                <div className="button-container">
+                    <button type="submit" className="submit-btn">Save Profile</button>
                 </div>
             </form>
         </>

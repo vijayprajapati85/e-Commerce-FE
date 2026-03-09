@@ -65,13 +65,13 @@ const ProductActions = () =>{
         
             <details>
                 <summary>Products</summary>
-                <div class="content">
+                <div className="content">
                    <ProductList onDataSend={handleProductData} updateData={dataUpdate} />
                 </div>
             </details>
              <details>
                 <summary>Categories / SubCategory</summary>
-                <div class="content">
+                <div className="content">
                    <CategoryList onDataSend={handleCategoryData} updateData={dataUpdate} />
                 </div>
             </details>

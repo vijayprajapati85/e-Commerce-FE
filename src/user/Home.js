@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { getProductByCatSubCat } from "../apis/productApi";
+import { getProductByCatSubCat, getSearchProduct } from "../apis/productApi";
 import ProductDetailModal from "../Product/ProductDetailModal";
 import AddToCart from '../cart/AddToCart';
 import { GetUser } from './UserContext';
@@ -14,7 +14,8 @@ const Home = () => {
 
     const { isLogin } = GetUser();
     const [products, setProducts] = useState([]);
-
+    const { catid, subid, catname, prodname } = useParams();
+  
     const getProduct = async (postData) => {
 
         let token = '';
@@ -22,8 +23,11 @@ const Home = () => {
             token = localStorage.getItem('token');
         }
 
-        const response = await getProductByCatSubCat(postData, token);
-        if (response.status === 401){
+        const response = prodname ? await getSearchProduct(postData, token) : await getProductByCatSubCat(postData, token);
+        if(response === null){
+            console.log(prodname);
+        }
+        else if (response.status === 401){
             toast.error("Unauthorized: User not authenticated.");
         }
         else if (response.data != null) {
@@ -33,7 +37,6 @@ const Home = () => {
         }
     }
 
-    const { catid, subid, catname } = useParams();
     const location = useLocation();
     const [data, setData] = useState(null);
 
@@ -55,7 +58,17 @@ const Home = () => {
             };
             setData(postData);
         }
+        else if (prodname) {
+            const postData = {
+                CatId: null,
+                SubCatId: null,
+                Name: prodname
+            };
+            setData(postData);
+        }
+
     }, [catid, subid, catname, location.pathname]);
+
     useEffect(() => {
         if (data) {
             getProduct(data);

@@ -19,17 +19,15 @@ const Navbar = ({ isAdmin }) => {
 
         const now = new Date();
 
-        // Check if the current time is beyond the expiry time
         if (now.getTime() > latestExpiryTimestamp) {
             localStorage.removeItem('cartItems');
         }
     }
 
-    // const [products, setProducts] = useState(cartitems);
-    // const [adminMenu, setAdminMenu] = useState(isAdmin);
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    
+    const [searchProduct, setSearchProduct] = useState('');
+
     const profile =  getProfile();
     const handleCartClick = () => {
         if (!isLogin()) {
@@ -84,6 +82,15 @@ const Navbar = ({ isAdmin }) => {
         setIsMenuOpen(false);
     };
 
+    const handleProdChange = (event) => {
+        setSearchProduct(event.target.value);
+    }
+
+    const searchProducts = async() =>{
+       navigate(`/search/${searchProduct}`);
+       setSearchProduct('');
+    }
+
     useState(() => {
         if (isAdmin) {
             clearSession();
@@ -91,7 +98,6 @@ const Navbar = ({ isAdmin }) => {
         else {
             clearAdminSession();
         }
-        //setAdminMenu(isAdmin);
     }, [isAdmin]);
 
     return (
@@ -108,8 +114,8 @@ const Navbar = ({ isAdmin }) => {
                     </div>
 
                     <div className="search-bar">
-                        <input type="text" id='searchproduct' name='search' placeholder="Search products..." />
-                        <button className="search-button">
+                        <input type="text" id='searchproduct' name='search' value={searchProduct}  onChange={handleProdChange} placeholder="Search products..." />
+                        <button className="search-button" onClick={searchProducts}>
                             <i className="ri-search-line"></i>
                         </button>
                     </div>

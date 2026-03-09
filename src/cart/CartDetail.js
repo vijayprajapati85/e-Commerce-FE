@@ -89,7 +89,7 @@ const CartDetail = ({onClose}) =>{
                                         <AddToCart product={item} isButton={false} isFinalCart={true} />
                                     </div>
                                 </div>
-                                <i class="ri-delete-bin-line finalcart-remove" onClick={() => removeItem(item)} ></i>
+                                <i className="ri-delete-bin-line finalcart-remove" onClick={() => removeItem(item)} ></i>
                             </div>
                         </div>
                     ))
@@ -111,7 +111,7 @@ const CartDetail = ({onClose}) =>{
       )}
 
             </button>
-            <i class="ri-close-line" id='finalcart-close' onClick={onClose}></i>
+            <i className="ri-close-line" id='finalcart-close' onClick={onClose}></i>
         </div>
 
         <Modal isOpen={isDeleteModalOpen} onClose={closeDeleteModal}>
