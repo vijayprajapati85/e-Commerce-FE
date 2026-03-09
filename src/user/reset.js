@@ -34,19 +34,19 @@ const Reset = () => {
 
     return (
         <>
-            <div class="login-container">
+            <div className="login-container">
                 <div className='login-header'>
                     <h2>Reset Your Password</h2>
                     <p>Please enter your details.</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="username">Email</label>
                         <input type="text" id="username" name="username" onChange={handleEmailChange} required />
                     </div>
                     <p className='alert'>Note: Password will send on your email id</p>
-                    <button type="submit" class="login-button">Reset</button>
-                    <div class="form-footer">
+                    <button type="submit" className="login-button">Reset</button>
+                    <div className="form-footer">
                         <Link to="/login">
                            Sigin in
                         </Link>

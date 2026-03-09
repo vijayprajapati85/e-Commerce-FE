@@ -79,22 +79,22 @@ const Login = () =>{
 
     return(
         <>
-            <div class="login-container">
+            <div className="login-container">
                 <div className='login-header'>
                     <h2>Login to Your Account</h2>
                     <p>Welcome back! Please enter your details.</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="username">Email</label>
                         <input type="text" id="username" name="username" onChange={handleEmailChange} required />
                     </div>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" onChange={handlePwdChange} required/>
                     </div>
-                    <button type="submit" class="login-button">Log In</button>
-                    <div class="form-footer">
+                    <button type="submit" className="login-button">Log In</button>
+                    <div className="form-footer">
                         <Link to='/reset'>Forgot password?</Link>&nbsp;&nbsp;
                         <span>Don't have an account? <Link to='/signup'>Sign up</Link></span>
                     </div>

@@ -122,7 +122,7 @@ import { CURRENCY_CODE, customTableStyles } from '../constants/constant';
 			<div className="search">
 				<div className="product-list">
 					<h3>Product List</h3>
-					<i class="ri-add-box-fill" title="Add Product" onClick={()=> onDataSend(null)}></i>
+					<i className="ri-add-box-fill" title="Add Product" onClick={()=> onDataSend(null)}></i>
 				</div>
 				<input type="text" placeholder="Search By Name" onChange={handleChange} />
 			</div>

@@ -12,47 +12,47 @@ import { Link } from 'react-router-dom';
 const TileShop = () => {
   return (
     <>
-    <div class="shop-container">
-        <div class="card" style={{ backgroundImage: `url(${HealthBeautyImage})` }}>
+    <div className="shop-container">
+        <div className="card" style={{ backgroundImage: `url(${HealthBeautyImage})` }}>
             <img src={HealthBeautyImage} alt="Health & Beauty" />
-            <div class="overlay">
+            <div className="overlay">
                 <h2>Health & Beauty</h2>
-                <Link to="/healthbeauty" class="shop-button">Shop Now</Link>
+                <Link to="/healthbeauty" className="shop-button">Shop Now</Link>
             </div>
         </div>
-        <div class="card">
+        <div className="card">
             <img src={HouseHold} alt="HouseHold"/>
-            <div class="overlay">
+            <div className="overlay">
                 <h2>HouseHold</h2>
-                 <Link to="/household" class="shop-button">Shop Now</Link>
+                 <Link to="/household" className="shop-button">Shop Now</Link>
             </div>
         </div>
-        <div class="card">
+        <div className="card">
             <img src={CBDProducts} alt="CBD Products" />
-            <div class="overlay">
+            <div className="overlay">
                 <h2>CBD Products</h2>
-                <Link to="/cbdproducts" class="shop-button">Shop Now</Link>
+                <Link to="/cbdproducts" className="shop-button">Shop Now</Link>
             </div>
         </div>
-        <div class="card">
+        <div className="card">
             <img src={Confectionery} alt="Confectionery" />
-            <div class="overlay">
+            <div className="overlay">
                 <h2>Confectionery</h2>
-                <Link to="/confectionery" class="shop-button">Shop Now</Link>
+                <Link to="/confectionery" className="shop-button">Shop Now</Link>
             </div>
         </div>
-        <div class="card">
+        <div className="card">
             <img src={KidsBaby} alt="Kids & Baby" />
-            <div class="overlay">
+            <div className="overlay">
                 <h2>Kids & Baby</h2>
-                <Link to="/kidsbaby" class="shop-button">Shop Now</Link>
+                <Link to="/kidsbaby" className="shop-button">Shop Now</Link>
             </div>
         </div>
-        <div class="card">
+        <div className="card">
             <img src={Grocery} alt="Kids & Baby" />
-            <div class="overlay">
+            <div className="overlay">
                 <h2>Grocery</h2>
-                <Link to="/grocery" class="shop-button">Shop Now</Link>
+                <Link to="/grocery" className="shop-button">Shop Now</Link>
             </div>
         </div>
     </div>

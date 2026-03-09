@@ -104,7 +104,7 @@ export const ExpandedComponent = ({ data }) => {
             name: (
             <div className="product-list" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span>Actions</span>
-              <i class="ri-add-box-fill" title="Add SubCategory" onClick={handleItemClick}></i>
+              <i className="ri-add-box-fill" title="Add SubCategory" onClick={handleItemClick}></i>
       </div>
     ),
             cell: (row) => (

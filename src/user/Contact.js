@@ -49,25 +49,25 @@ const Contact = () => {
 
   return (
     <div>
-         <div class="login-container">
+         <div className="login-container">
              <div className='login-header'>
                    <h2>We would love to hear from you.</h2>
                     <p>If you’ve got great products your making or looking to work with us then drop us a line.</p>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="contact-fullname">Name</label>
                         <input type="text" id="contact-fullname" onChange={handleNameChange} required />
                     </div>
-                    <div class="input-group">
+                    <div className="input-group">
                         <label for="contact-email">Email</label>
                         <input type="email" id="contact-email" onChange={handleEmailChange} required />
                     </div>
-                     <div class="input-group">
+                     <div className="input-group">
                         <label for="contact-message">Message</label>
                         <textarea id="contact-message" rows="4" cols="52" onChange={handleMessageChange}></textarea>
                     </div>
-                    <button type="submit" class="login-button">Submit</button>
+                    <button type="submit" className="login-button">Submit</button>
                 </form>
             </div>
     </div>

@@ -1,21 +1,24 @@
 import TileShop from './dashboard-tile';
+import CombinedSlider from './slider';
 // import Popular from './dashboard-popular';
 
 const DashboardUser = () => {
-    // const dummyItems = [
-    //     { id: 1, title: "Product 1" },
-    //     { id: 2, title: "Product 2" },
-    //     { id: 3, title: "Product 3" },
-    //     { id: 4, title: "Product 4" },
-    //     { id: 5, title: "Product 5" },
-    //     { id: 6, title: "Product 6" },
-    //     { id: 7, title: "Product 7" },
-    //     { id: 8, title: "Product 8" }
-    // ];
+  const importAll = (r) => {
+  return r.keys().map((item) => {
+    const fileName = item.replace('./', '').split('.')[0];
+    return {
+      url: r(item),
+      title: fileName.replace(/-/g, ' ')
+    };
+  });
+};
+    const slide = importAll(require.context('../assets/products', false, /\.(png|jpe?g|svg)$/));
+
   return (
     <>
     {/* <Popular items={dummyItems} /> */}
     <TileShop />
+    <CombinedSlider slides={slide} />
     </>
     );
 }

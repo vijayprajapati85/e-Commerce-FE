@@ -16,8 +16,8 @@ const UserForm = () => {
 
     return(
         <>
-            <div class="main-content">
-                <div class="landing-text-area">
+            <div className="main-content">
+                <div className="landing-text-area">
                     <h2>Landing Page Template background</h2>
                     <h3>Some another contet plage here.....</h3>
                 </div>

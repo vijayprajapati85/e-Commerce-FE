@@ -77,8 +77,47 @@ const getProduct = async(payload) =>{
         if (response.ok) {
             return response.json();
         }
+        return response;
+}
+
+
+export const getSearchProduct = async (payload,token) => {
+    if(token !== ''){
+        const request = {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json',
+                'Authorization' : `Bearer ${token}`
+             }
+        }
+        const response = await fetch(`${BASEURL_PRODUCT}SearchProductsWithPrice`, request)
+
+        if (response.ok) {
+            return response.json();
+        }
+        if(response.status === 401)
+        {
+            localStorage.removeItem('token');
+            return getProduct(payload);
+        }
 
         return response;
+    }
+    else {
+        return searchProduct(payload);
+     }
+}
 
-
+const searchProduct = async(payload) =>{
+       const request = {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: { 'Content-Type': 'application/json' }
+        }
+        const response = await fetch(`${BASEURL_PRODUCT}SearchProducts`, request)
+        
+        if (response.ok) {
+            return response.json();
+        }
+        return response;
 }

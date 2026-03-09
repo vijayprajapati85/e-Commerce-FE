@@ -19,7 +19,7 @@ import CorporateProfile from './Components/Navbar/corporateprofile';
 const App = () => {
   const location = useLocation();
   const isAdmin = location.pathname.toLowerCase().includes('admin');
-  
+
   return (
       <div className='container'>
         <ToastContainer position="top-right" autoClose={5000} />
@@ -29,6 +29,7 @@ const App = () => {
             <Route path="/:cat/:catid/:sub/:subid" element={<Home />} />
             <Route path="/:cat/:catid" element={<Home />} />
             <Route path="/:catname" element={<Home />} />
+            <Route path="/search/:prodname" element={<Home />} />
             <Route path="/" element={<DashboardUser />} />
             <Route path="/signup" element={<UserForm />} />
             <Route path="/reset" element={<UserForm />} />
