@@ -46,7 +46,9 @@ const Footer = () => {
             </div>
               <div className='social-media'>
                <h4>Social Media</h4> &nbsp;
-                <i className="ri-facebook-circle-fill ri-lg"></i>
+                <a href='https://www.facebook.com/profile.php?id=61585068575482&sk=about' target='_blank'>
+                    <i className="ri-facebook-circle-fill ri-lg"></i>
+                 </a>
                 <i className="ri-pinterest-fill ri-lg"></i>
                 <i className="ri-instagram-fill ri-lg"></i>
                 <i className="ri-twitter-x-fill ri-lg"></i>
